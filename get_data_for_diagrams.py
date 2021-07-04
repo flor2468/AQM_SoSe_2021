@@ -260,6 +260,90 @@ def filter_by_age_and_time():
     return younger_book_morning, younger_movie_morning, older_book_morning, older_movie_morning, younger_book_noon, younger_movie_noon, older_book_noon, older_movie_noon, younger_book_afternoon, younger_movie_afternoon, older_book_afternoon, older_movie_afternoon, younger_book_evening, younger_movie_evening, older_book_evening, older_movie_evening, younger_book_night, younger_movie_night, older_book_night, older_movie_night
 
 
+def get_age_dispersion():
+
+    data = readCSV('csv_files/edited/survey_complete.csv')
+    grouped_ages = group_ages()
+    younger_sum = 0
+    older_sum = 0
+
+    for i in range(len(grouped_ages)):
+        if grouped_ages[i] == '< 18' or grouped_ages[i] == '18 - 25' or grouped_ages[i] == '26 - 30':
+            younger_sum += 1
+        if grouped_ages[i] == '31 - 40' or grouped_ages[i] == '41 - 50' or grouped_ages[i] == '51 - 60':
+            older_sum += 1
+
+    return younger_sum, older_sum
+
+
+def get_dispersion_age_time():
+
+    younger_book_morning, younger_movie_morning, older_book_morning, older_movie_morning, younger_book_noon, younger_movie_noon, older_book_noon, older_movie_noon, younger_book_afternoon, younger_movie_afternoon, older_book_afternoon, older_movie_afternoon, younger_book_evening, younger_movie_evening, older_book_evening, older_movie_evening, younger_book_night, younger_movie_night, older_book_night, older_movie_night = filter_by_age_and_time()
+    younger_sum, older_sum = get_age_dispersion()
+
+
+    # young_book_sum = younger_book_morning + younger_book_noon + younger_book_afternoon + younger_book_evening + younger_book_night
+    # young_movie_sum = younger_movie_morning + younger_movie_noon + younger_movie_afternoon + younger_movie_evening + younger_movie_night
+    
+    # old_book_sum = older_book_morning + older_book_noon + older_book_afternoon + older_book_evening + older_book_night
+    # old_movie_sum = older_movie_morning + older_movie_noon + older_movie_afternoon + older_movie_evening + older_movie_night
+    
+    younger_book_morning = younger_book_morning / younger_sum
+    younger_book_noon = younger_book_noon / younger_sum
+    younger_book_afternoon = younger_book_afternoon / younger_sum
+    younger_book_evening = younger_book_evening / younger_sum
+    younger_book_night = younger_book_night / younger_sum
+
+    print(younger_sum)
+    print(younger_book_morning)
+    print(younger_book_noon)
+    print(younger_book_afternoon)
+    print(younger_book_evening)
+    print(younger_book_night)
+
+    older_book_morning = older_book_morning / older_sum
+    older_book_noon = older_book_noon / older_sum
+    older_book_afternoon = older_book_afternoon / older_sum
+    older_book_evening = older_book_evening / older_sum
+    older_book_night = older_book_night / older_sum
+
+    print(older_sum)
+    print(older_book_morning)
+    print(older_book_noon)
+    print(older_book_afternoon)
+    print(older_book_evening)
+    print(older_book_night)
+
+    younger_movie_morning = younger_movie_morning / younger_sum
+    younger_movie_noon = younger_movie_noon / younger_sum
+    younger_movie_afternoon = younger_movie_afternoon / younger_sum
+    younger_movie_evening = younger_movie_evening / younger_sum
+    younger_movie_night = younger_movie_night / younger_sum
+
+    print(younger_sum)
+    print(younger_movie_morning)
+    print(younger_movie_noon)
+    print(younger_movie_afternoon)
+    print(younger_movie_evening)
+    print(younger_movie_night)
+
+    older_movie_morning = older_movie_morning / older_sum
+    older_movie_noon = older_movie_noon / older_sum
+    older_movie_afternoon = older_movie_afternoon / older_sum
+    older_movie_evening = older_movie_evening / older_sum
+    older_movie_night = older_movie_night / older_sum
+
+    print(older_sum)
+    print(older_movie_morning)
+    print(older_movie_noon)
+    print(older_movie_afternoon)
+    print(older_movie_evening)
+    print(older_movie_night)
+
+    return younger_book_morning, younger_movie_morning, older_book_morning, older_movie_morning, younger_book_noon, younger_movie_noon, older_book_noon, older_movie_noon, younger_book_afternoon, younger_movie_afternoon, older_book_afternoon, older_movie_afternoon, younger_book_evening, younger_movie_evening, older_book_evening, older_movie_evening, younger_book_night, younger_movie_night, older_book_night, older_movie_night
+
+
+
 def get_book_and_movie_times():
 
     data = readCSV('csv_files/edited/survey_complete.csv')
@@ -336,3 +420,11 @@ def get_book_and_movie_times():
     # print(len(movie_time))
 
     return book_time, movie_time
+
+
+# def main():
+#     get_dispersion_age_time()
+
+
+# if __name__ == main():
+#     main()

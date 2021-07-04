@@ -176,11 +176,69 @@ def create_bar_chart_with_multiple_bars():
     plt.show()
 
 
-def create_histogram_bar_chart():
+def create_age_time_bar_chart():
 
-    younger_book_morning, younger_movie_morning, older_book_morning, older_movie_morning, younger_book_noon, younger_movie_noon, older_book_noon, older_movie_noon, younger_book_afternoon, younger_movie_afternoon, older_book_afternoon, older_movie_afternoon, younger_book_evening, younger_movie_evening, older_book_evening, older_movie_evening, younger_book_night, younger_movie_night, older_book_night, older_movie_night = filter_by_age_and_time()
+    # younger_book_morning, younger_movie_morning, older_book_morning, older_movie_morning, younger_book_noon, younger_movie_noon, older_book_noon, older_movie_noon, younger_book_afternoon, younger_movie_afternoon, older_book_afternoon, older_movie_afternoon, younger_book_evening, younger_movie_evening, older_book_evening, older_movie_evening, younger_book_night, younger_movie_night, older_book_night, older_movie_night = filter_by_age_and_time()
 
-    
+    younger_book_morning, younger_movie_morning, older_book_morning, older_movie_morning, younger_book_noon, younger_movie_noon, older_book_noon, older_movie_noon, younger_book_afternoon, younger_movie_afternoon, older_book_afternoon, older_movie_afternoon, younger_book_evening, younger_movie_evening, older_book_evening, older_movie_evening, younger_book_night, younger_movie_night, older_book_night, older_movie_night = get_dispersion_age_time()
+
+    # BOOK
+
+    book_data = [[younger_book_morning, younger_book_noon, younger_book_afternoon, younger_book_evening, younger_book_night], 
+            [older_book_morning, older_book_noon, older_book_afternoon, older_book_evening, older_book_night]]
+
+    Pos = np.arange(5)
+
+    fig, ax = plt.subplots()
+
+    ax.bar(Pos + 0.00, book_data[0], color='lightgreen', width=0.25)
+    ax.bar(Pos + 0.25, book_data[1], color='orange', width=0.25)
+    ax.set_xticks([0, 1, 2, 3, 4])
+    ax.set_xticklabels(['in the morning', 'at noon', 'in the\nafternoon', 'in the\nevening', 'at night'])
+    ax.set_yticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    ax.set_ylabel('amount')
+    # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
+
+    younger_patch = mpatches.Patch(color='lightgreen', label='age groups A-C')
+    older_patch = mpatches.Patch(color='orange', label='age groups D-F')
+
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
+    ax.legend(handles=[younger_patch, older_patch], loc='upper center', bbox_to_anchor=(0.5, -0.15), fancybox=True, shadow=True, ncol=5)
+
+    plt.savefig('diagrams/bar_charts/age_time_book.png')
+
+    plt.show()
+
+    # MOVIE
+
+    movie_data = [[younger_movie_morning, younger_movie_noon, younger_movie_afternoon, younger_movie_evening, younger_movie_night], 
+            [older_movie_morning, older_movie_noon, older_movie_afternoon, older_movie_evening, older_movie_night]]
+
+    Pos = np.arange(5)
+
+    fig, ax = plt.subplots()
+
+    ax.bar(Pos + 0.00, movie_data[0], color='lightgreen', width=0.25)
+    ax.bar(Pos + 0.25, movie_data[1], color='orange', width=0.25)
+    ax.set_xticks([0, 1, 2, 3, 4])
+    ax.set_xticklabels(['in the morning', 'at noon', 'in the\nafternoon', 'in the\nevening', 'at night'])
+    ax.set_yticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    ax.set_ylabel('amount')
+    # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
+
+    younger_patch = mpatches.Patch(color='lightgreen', label='age groups A-C')
+    older_patch = mpatches.Patch(color='orange', label='age groups D-F')
+
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
+    ax.legend(handles=[younger_patch, older_patch], loc='upper center', bbox_to_anchor=(0.5, -0.15), fancybox=True, shadow=True, ncol=5)
+
+    plt.savefig('diagrams/bar_charts/age_time_movie.png')
+
+    plt.show()
+
+
 
 
 def main():
@@ -193,7 +251,9 @@ def main():
     # create_simple_bar_chart(snacks_book, snacks_movie, 'snacks')
     # create_simple_bar_chart(motivation_book, motivation_movie, 'motivation')
 
-    create_bar_chart_with_multiple_bars()
+    # create_bar_chart_with_multiple_bars()
+
+    create_age_time_bar_chart()
 
 
 if __name__ == main():
