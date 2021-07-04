@@ -5,6 +5,10 @@ from get_data_for_diagrams import *
 def create_histogram(which_histogram):
 
     data = readCSV('csv_files/edited/survey_complete.csv')
+    symptoms_book, symptoms_movie, snacks_book, snacks_movie, frequently_book = convert_string_scales_to_values()
+    # data = readCSV('csv_files/edited/survey_complete.csv')
+    motivation_book = processDataToString(data, "How motivated are you to become physically active after you've read a book on a scale of 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
+    motivation_movie = processDataToString(data, "How motivated are you to become physically active after you've watched a movie / a series on a scale from 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
 
     if (which_histogram == 'age'):
 
@@ -69,17 +73,140 @@ def create_histogram(which_histogram):
 
         plt.show()
 
-    # if (which_histogram == 'age-time'):
+    if (which_histogram == 'symptoms'):
 
-    #     younger_book_morning, younger_movie_morning, older_book_morning, older_movie_morning, younger_book_noon, younger_movie_noon, older_book_noon, older_movie_noon, younger_book_afternoon, younger_movie_afternoon, older_book_afternoon, older_movie_afternoon, younger_book_evening, younger_movie_evening, older_book_evening, older_movie_evening, younger_book_night, younger_movie_night, older_book_night, older_movie_night = filter_by_age_and_time()
+        print(symptoms_movie)
 
+        bins = [1, 2, 3, 4, 5, 6]
+
+        # BOOK
+        hist, bins = np.histogram(symptoms_book, bins = bins) 
+        print(hist)
+        print(bins)
+        # fig = plt.figure()
+        ax = plt.figure().gca()
+        plt.hist(symptoms_book, bins = bins, rwidth=0.9, color='turquoise', align='left') 
+        # plt.xlim([0, 65])
+        # plt.xticks(np.arange(9,61,1))
+        ax.set_xticks([1, 2, 3, 4, 5])
+        ax.set_xticklabels(['never\n(1)', 'seldom\n(2)', 'sometimes\n(3)', 'often\n(4)', 'very often\n(5)'])
+        ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
+        ax.set_ylabel('amount')
+
+        plt.savefig('diagrams/histograms/symptoms_book_histogram.png')
+
+        plt.show()
+
+        # MOVIE
+        hist, bins = np.histogram(symptoms_movie, bins = bins) 
+        print(hist)
+        print(bins)
+        # fig = plt.figure()
+        ax = plt.figure().gca()
+        plt.hist(symptoms_movie, bins = bins, rwidth=0.9, color='turquoise', align='left') 
+        # plt.xlim([0, 65])
+        # plt.xticks(np.arange(9,61,1))
+        ax.set_xticks([1, 2, 3, 4, 5])
+        ax.set_xticklabels(['never\n(1)', 'seldom\n(2)', 'sometimes\n(3)', 'often\n(4)', 'very often\n(5)'])
+        ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
+        ax.set_ylabel('amount')
+
+        plt.savefig('diagrams/histograms/symptoms_movie_histogram.png')
+
+        plt.show()
+
+    if (which_histogram == 'snacks'):
+
+        print(snacks_movie)
+
+        bins = [1, 2, 3, 4, 5, 6]
+
+        # BOOK
+        hist, bins = np.histogram(snacks_book, bins = bins) 
+        print(hist)
+        print(bins)
+        # fig = plt.figure()
+        ax = plt.figure().gca()
+        plt.hist(snacks_book, bins = bins, rwidth=0.9, color='turquoise', align='left') 
+        # plt.xlim([0, 65])
+        # plt.xticks(np.arange(9,61,1))
+        ax.set_xticks([1, 2, 3, 4, 5])
+        ax.set_xticklabels(['never\n(1)', 'seldom\n(2)', 'sometimes\n(3)', 'often\n(4)', 'very often\n(5)'])
+        ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
+        ax.set_ylabel('amount')
+
+        plt.savefig('diagrams/histograms/snacks_book_histogram.png')
+
+        plt.show()
+
+        # MOVIE
+        hist, bins = np.histogram(snacks_movie, bins = bins) 
+        print(hist)
+        print(bins)
+        # fig = plt.figure()
+        ax = plt.figure().gca()
+        plt.hist(snacks_movie, bins = bins, rwidth=0.9, color='turquoise', align='left') 
+        # plt.xlim([0, 65])
+        # plt.xticks(np.arange(9,61,1))
+        ax.set_xticks([1, 2, 3, 4, 5])
+        ax.set_xticklabels(['never\n(1)', 'seldom\n(2)', 'sometimes\n(3)', 'often\n(4)', 'very often\n(5)'])
+        ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
+        ax.set_ylabel('amount')
+
+        plt.savefig('diagrams/histograms/snacks_movie_histogram.png')
+
+        plt.show()
+
+    if (which_histogram == 'motivation'):
+
+        print(motivation_movie)
+
+        bins = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+        # BOOK
+        hist, bins = np.histogram(motivation_book, bins = bins) 
+        print(hist)
+        print(bins)
+        # fig = plt.figure()
+        ax = plt.figure().gca()
+        plt.hist(motivation_book, bins = bins, rwidth=0.9, color='turquoise', align='left') 
+        # plt.xlim([0, 65])
+        # plt.xticks(np.arange(9,61,1))
+        ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
+        ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
+        ax.set_ylabel('amount')
+
+        plt.savefig('diagrams/histograms/motivation_book_histogram.png')
+
+        plt.show()
+
+        # MOVIE
+        hist, bins = np.histogram(motivation_movie, bins = bins) 
+        print(hist)
+        print(bins)
+        # fig = plt.figure()
+        ax = plt.figure().gca()
+        plt.hist(motivation_movie, bins = bins, rwidth=0.9, color='turquoise', align='left') 
+        # plt.xlim([0, 65])
+        # plt.xticks(np.arange(9,61,1))
+        ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
+        ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
+        ax.set_ylabel('amount')
+
+        plt.savefig('diagrams/histograms/motivation_movie_histogram.png')
+
+        plt.show()
 
 
 
 def main():
     # create_histogram('age')
     # create_histogram('time')
-    create_histogram('age-time')
+    # create_histogram('symptoms')
+    # create_histogram('snacks')
+    create_histogram('motivation')
 
 
 if __name__ ==  main():
