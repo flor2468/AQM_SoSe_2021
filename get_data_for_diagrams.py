@@ -422,9 +422,384 @@ def get_book_and_movie_times():
     return book_time, movie_time
 
 
-# def main():
-#     get_dispersion_age_time()
+# def filter_by_age_and_symptoms():
+    
+#     data = readCSV('csv_files/edited/survey_complete.csv')
+#     grouped_ages = group_ages()
 
+
+def filter_by_age_and_symptoms():
+
+    data = readCSV('csv_files/edited/survey_complete.csv')
+    grouped_ages = group_ages()
+    # younger_symptoms_book, younger_symptoms_movie, older_symptoms_book, older_symptoms_movie, younger_snacks_book, younger_snacks_movie, older_snacks_book, older_snacks_movie, younger_motivation_book, younger_motivation_movie, older_motivation_book, older_motivation_movie = filter_by_age_and_physical_aspects()
+    
+    symptoms_book = processDataToString(data, "How often do you have symptoms like a headache, burning eyes etc. after you've read?")
+    symptoms_movie = processDataToString(data, "How often do you have symptoms like a headache, burning eyes etc. after you've watched a movie / a series?")
+
+    younger_symptoms_book_never = 0
+    younger_symptoms_book_seldom = 0
+    younger_symptoms_book_sometimes = 0
+    younger_symptoms_book_often = 0
+    younger_symptoms_book_very_often = 0
+
+    older_symptoms_book_never = 0
+    older_symptoms_book_seldom = 0
+    older_symptoms_book_sometimes = 0
+    older_symptoms_book_often = 0
+    older_symptoms_book_very_often = 0
+
+    younger_symptoms_movie_never = 0
+    younger_symptoms_movie_seldom = 0
+    younger_symptoms_movie_sometimes = 0
+    younger_symptoms_movie_often = 0
+    younger_symptoms_movie_very_often = 0
+    
+    older_symptoms_movie_never = 0
+    older_symptoms_movie_seldom = 0
+    older_symptoms_movie_sometimes = 0
+    older_symptoms_movie_often = 0
+    older_symptoms_movie_very_often = 0
+
+    for i in range(len(grouped_ages)):
+        if grouped_ages[i] == '< 18' or grouped_ages[i] == '18 - 25' or grouped_ages[i] == '26 - 30':
+            if symptoms_book[i] == 'never':
+                younger_symptoms_book_never += 1
+            if symptoms_book[i] == 'seldom':
+                younger_symptoms_book_seldom += 1
+            if symptoms_book[i] == 'sometimes':
+                younger_symptoms_book_sometimes += 1
+            if symptoms_book[i] == 'often':
+                younger_symptoms_book_often += 1
+            if symptoms_book[i] == 'very often':
+                younger_symptoms_book_very_often += 1
+            if symptoms_movie[i] == 'never':
+                younger_symptoms_movie_never += 1
+            if symptoms_movie[i] == 'seldom':
+                younger_symptoms_movie_seldom += 1
+            if symptoms_movie[i] == 'sometimes':
+                younger_symptoms_movie_sometimes += 1
+            if symptoms_movie[i] == 'often':
+                younger_symptoms_movie_often += 1
+            if symptoms_movie[i] == 'very often':
+                younger_symptoms_movie_very_often += 1
+        if grouped_ages[i] == '31 - 40' or grouped_ages[i] == '41 - 50' or grouped_ages[i] == '51 - 60':
+            if symptoms_book[i] == 'never':
+                older_symptoms_book_never += 1
+            if symptoms_book[i] == 'seldom':
+                older_symptoms_book_seldom += 1
+            if symptoms_book[i] == 'sometimes':
+                older_symptoms_book_sometimes += 1
+            if symptoms_book[i] == 'often':
+                older_symptoms_book_often += 1
+            if symptoms_book[i] == 'very often':
+                older_symptoms_book_very_often += 1
+            if symptoms_movie[i] == 'never':
+                older_symptoms_movie_never += 1
+            if symptoms_movie[i] == 'seldom':
+                older_symptoms_movie_seldom += 1
+            if symptoms_movie[i] == 'sometimes':
+                older_symptoms_movie_sometimes += 1
+            if symptoms_movie[i] == 'often':
+                older_symptoms_movie_often += 1
+            if symptoms_movie[i] == 'very often':
+                older_symptoms_movie_very_often += 1
+
+    return younger_symptoms_book_never, younger_symptoms_book_seldom, younger_symptoms_book_sometimes, younger_symptoms_book_often, younger_symptoms_book_very_often, older_symptoms_book_never, older_symptoms_book_seldom, older_symptoms_book_sometimes, older_symptoms_book_often, older_symptoms_book_very_often, younger_symptoms_movie_never, younger_symptoms_movie_seldom, younger_symptoms_movie_sometimes, younger_symptoms_movie_often, younger_symptoms_movie_very_often, older_symptoms_movie_never, older_symptoms_movie_seldom, older_symptoms_movie_sometimes, older_symptoms_movie_often, older_symptoms_movie_very_often
+
+def filter_by_age_and_snacks():
+
+    data = readCSV('csv_files/edited/survey_complete.csv')
+    grouped_ages = group_ages()
+    # younger_symptoms_book, younger_symptoms_movie, older_symptoms_book, older_symptoms_movie, younger_snacks_book, younger_snacks_movie, older_snacks_book, older_snacks_movie, younger_motivation_book, younger_motivation_movie, older_motivation_book, older_motivation_movie = filter_by_age_and_physical_aspects()
+    
+    snacks_book = processDataToString(data, "How often do you eat snacks during reading?")
+    snacks_movie = processDataToString(data, "How often do you eat snacks during watching a movie / a series?")
+
+    younger_snacks_book_never = 0
+    younger_snacks_book_seldom = 0
+    younger_snacks_book_sometimes = 0
+    younger_snacks_book_often = 0
+    younger_snacks_book_very_often = 0
+
+    older_snacks_book_never = 0
+    older_snacks_book_seldom = 0
+    older_snacks_book_sometimes = 0
+    older_snacks_book_often = 0
+    older_snacks_book_very_often = 0
+
+    younger_snacks_movie_never = 0
+    younger_snacks_movie_seldom = 0
+    younger_snacks_movie_sometimes = 0
+    younger_snacks_movie_often = 0
+    younger_snacks_movie_very_often = 0
+    
+    older_snacks_movie_never = 0
+    older_snacks_movie_seldom = 0
+    older_snacks_movie_sometimes = 0
+    older_snacks_movie_often = 0
+    older_snacks_movie_very_often = 0
+
+    for i in range(len(grouped_ages)):
+        if grouped_ages[i] == '< 18' or grouped_ages[i] == '18 - 25' or grouped_ages[i] == '26 - 30':
+            if snacks_book[i] == 'never':
+                younger_snacks_book_never += 1
+            if snacks_book[i] == 'seldom':
+                younger_snacks_book_seldom += 1
+            if snacks_book[i] == 'sometimes':
+                younger_snacks_book_sometimes += 1
+            if snacks_book[i] == 'often':
+                younger_snacks_book_often += 1
+            if snacks_book[i] == 'very often':
+                younger_snacks_book_very_often += 1
+            if snacks_movie[i] == 'never':
+                younger_snacks_movie_never += 1
+            if snacks_movie[i] == 'seldom':
+                younger_snacks_movie_seldom += 1
+            if snacks_movie[i] == 'sometimes':
+                younger_snacks_movie_sometimes += 1
+            if snacks_movie[i] == 'often':
+                younger_snacks_movie_often += 1
+            if snacks_movie[i] == 'very often':
+                younger_snacks_movie_very_often += 1
+        if grouped_ages[i] == '31 - 40' or grouped_ages[i] == '41 - 50' or grouped_ages[i] == '51 - 60':
+            if snacks_book[i] == 'never':
+                older_snacks_book_never += 1
+            if snacks_book[i] == 'seldom':
+                older_snacks_book_seldom += 1
+            if snacks_book[i] == 'sometimes':
+                older_snacks_book_sometimes += 1
+            if snacks_book[i] == 'often':
+                older_snacks_book_often += 1
+            if snacks_book[i] == 'very often':
+                older_snacks_book_very_often += 1
+            if snacks_movie[i] == 'never':
+                older_snacks_movie_never += 1
+            if snacks_movie[i] == 'seldom':
+                older_snacks_movie_seldom += 1
+            if snacks_movie[i] == 'sometimes':
+                older_snacks_movie_sometimes += 1
+            if snacks_movie[i] == 'often':
+                older_snacks_movie_often += 1
+            if snacks_movie[i] == 'very often':
+                older_snacks_movie_very_often += 1
+
+    return younger_snacks_book_never, younger_snacks_book_seldom, younger_snacks_book_sometimes, younger_snacks_book_often, younger_snacks_book_very_often, older_snacks_book_never, older_snacks_book_seldom, older_snacks_book_sometimes, older_snacks_book_often, older_snacks_book_very_often, younger_snacks_movie_never, younger_snacks_movie_seldom, younger_snacks_movie_sometimes, younger_snacks_movie_often, younger_snacks_movie_very_often, older_snacks_movie_never, older_snacks_movie_seldom, older_snacks_movie_sometimes, older_snacks_movie_often, older_snacks_movie_very_often
+
+
+def filter_by_age_and_motivation():
+
+    data = readCSV('csv_files/edited/survey_complete.csv')
+    grouped_ages = group_ages()
+    # younger_symptoms_book, younger_symptoms_movie, older_symptoms_book, older_symptoms_movie, younger_snacks_book, younger_snacks_movie, older_snacks_book, older_snacks_movie, younger_motivation_book, younger_motivation_movie, older_motivation_book, older_motivation_movie = filter_by_age_and_physical_aspects()
+    
+    motivation_book = processDataToString(data, "How motivated are you to become physically active after you've read a book on a scale of 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
+    motivation_movie = processDataToString(data, "How motivated are you to become physically active after you've watched a movie / a series on a scale from 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
+
+    younger_motivation_book_never = 0
+    younger_motivation_book_seldom = 0
+    younger_motivation_book_sometimes = 0
+    younger_motivation_book_often = 0
+    younger_motivation_book_very_often = 0
+
+    older_motivation_book_never = 0
+    older_motivation_book_seldom = 0
+    older_motivation_book_sometimes = 0
+    older_motivation_book_often = 0
+    older_motivation_book_very_often = 0
+
+    younger_motivation_movie_never = 0
+    younger_motivation_movie_seldom = 0
+    younger_motivation_movie_sometimes = 0
+    younger_motivation_movie_often = 0
+    younger_motivation_movie_very_often = 0
+    
+    older_motivation_movie_never = 0
+    older_motivation_movie_seldom = 0
+    older_motivation_movie_sometimes = 0
+    older_motivation_movie_often = 0
+    older_motivation_movie_very_often = 0
+
+    younger_motivation_book_A = 0
+
+    for i in range(len(grouped_ages)):
+        if grouped_ages[i] == '< 18' or grouped_ages[i] == '18 - 25' or grouped_ages[i] == '26 - 30':
+            if motivation_book[i] == '1' or motivation_book[i] == '2':
+                younger_motivation_book_never += 1
+            if motivation_book[i] == '3' or motivation_book[i] == '4':
+                younger_motivation_book_seldom += 1
+            if motivation_book[i] == '5' or motivation_book[i] == '6':
+                younger_motivation_book_sometimes += 1
+            if motivation_book[i] == '7' or motivation_book[i] == '8':
+                younger_motivation_book_often += 1
+            if motivation_book[i] == '9' or motivation_book[i] == '10':
+                younger_motivation_book_very_often += 1
+            if motivation_movie[i] == '1' or motivation_movie[i] == '2':
+                younger_motivation_movie_never += 1
+            if motivation_movie[i] == '3' or motivation_movie[i] == '4':
+                younger_motivation_movie_seldom += 1
+            if motivation_movie[i] == '5' or motivation_movie[i] == '6':
+                younger_motivation_movie_sometimes += 1
+            if motivation_movie[i] == '7' or motivation_movie[i] == '8':
+                younger_motivation_movie_often += 1
+            if motivation_movie[i] == '9' or motivation_movie[i] == '10':
+                younger_motivation_movie_very_often += 1
+        if grouped_ages[i] == '31 - 40' or grouped_ages[i] == '41 - 50' or grouped_ages[i] == '51 - 60':
+            if motivation_book[i] == '1' or motivation_book[i] == '2':
+                older_motivation_book_never += 1
+            if motivation_book[i] == '3' or motivation_book[i] == '4':
+                older_motivation_book_seldom += 1
+            if motivation_book[i] == '5' or motivation_book[i] == '6':
+                older_motivation_book_sometimes += 1
+            if motivation_book[i] == '7' or motivation_book[i] == '8':
+                older_motivation_book_often += 1
+            if motivation_book[i] == '9' or motivation_book[i] == '10':
+                older_motivation_book_very_often += 1
+            if motivation_movie[i] == '1' or motivation_movie[i] == '2':
+                older_motivation_movie_never += 1
+            if motivation_movie[i] == '3' or motivation_movie[i] == '4':
+                older_motivation_movie_seldom += 1
+            if motivation_movie[i] == '5' or motivation_movie[i] == '6':
+                older_motivation_movie_sometimes += 1
+            if motivation_movie[i] == '7' or motivation_movie[i] == '8':
+                older_motivation_movie_often += 1
+            if motivation_movie[i] == '9' or motivation_movie[i] == '10':
+                older_motivation_movie_very_often += 1
+
+    return younger_motivation_book_never, younger_motivation_book_seldom, younger_motivation_book_sometimes, younger_motivation_book_often, younger_motivation_book_very_often, older_motivation_book_never, older_motivation_book_seldom, older_motivation_book_sometimes, older_motivation_book_often, older_motivation_book_very_often, younger_motivation_movie_never, younger_motivation_movie_seldom, younger_motivation_movie_sometimes, younger_motivation_movie_often, younger_motivation_movie_very_often, older_motivation_movie_never, older_motivation_movie_seldom, older_motivation_movie_sometimes, older_motivation_movie_often, older_motivation_movie_very_often
+
+
+def get_dispersion_age_symptoms():
+
+    younger_symptoms_book_never, younger_symptoms_book_seldom, younger_symptoms_book_sometimes, younger_symptoms_book_often, younger_symptoms_book_very_often, older_symptoms_book_never, older_symptoms_book_seldom, older_symptoms_book_sometimes, older_symptoms_book_often, older_symptoms_book_very_often, younger_symptoms_movie_never, younger_symptoms_movie_seldom, younger_symptoms_movie_sometimes, younger_symptoms_movie_often, younger_symptoms_movie_very_often, older_symptoms_movie_never, older_symptoms_movie_seldom, older_symptoms_movie_sometimes, older_symptoms_movie_often, older_symptoms_movie_very_often = filter_by_age_and_symptoms()
+    younger_sum, older_sum = get_age_dispersion()
+
+    younger_symptoms_book_never = younger_symptoms_book_never / younger_sum
+    younger_symptoms_book_seldom = younger_symptoms_book_seldom / younger_sum
+    younger_symptoms_book_sometimes = younger_symptoms_book_sometimes / younger_sum
+    younger_symptoms_book_often = younger_symptoms_book_often / younger_sum
+    younger_symptoms_book_very_often = younger_symptoms_book_very_often / younger_sum
+
+    # print(younger_symptoms_book_never)
+    # print(younger_symptoms_book_seldom)
+    # print(younger_symptoms_book_sometimes)
+    # print(younger_symptoms_book_often)
+    # print(younger_symptoms_book_very_often)
+    # print(younger_symptoms_book_never + younger_symptoms_book_seldom + younger_symptoms_book_sometimes + younger_symptoms_book_often + younger_symptoms_book_very_often)
+
+    younger_symptoms_movie_never = younger_symptoms_movie_never / younger_sum
+    younger_symptoms_movie_seldom = younger_symptoms_movie_seldom / younger_sum
+    younger_symptoms_movie_sometimes = younger_symptoms_movie_sometimes / younger_sum
+    younger_symptoms_movie_often = younger_symptoms_movie_often / younger_sum
+    younger_symptoms_movie_very_often = younger_symptoms_movie_very_often / younger_sum
+
+    older_symptoms_book_never = older_symptoms_book_never / older_sum
+    older_symptoms_book_seldom = older_symptoms_book_seldom / older_sum
+    older_symptoms_book_sometimes = older_symptoms_book_sometimes / older_sum
+    older_symptoms_book_often = older_symptoms_book_often / older_sum
+    older_symptoms_book_very_often = older_symptoms_book_very_often / older_sum
+
+    older_symptoms_movie_never = older_symptoms_movie_never / older_sum
+    older_symptoms_movie_seldom = older_symptoms_movie_seldom / older_sum
+    older_symptoms_movie_sometimes = older_symptoms_movie_sometimes / older_sum
+    older_symptoms_movie_often = older_symptoms_movie_often / older_sum
+    older_symptoms_movie_very_often = older_symptoms_movie_very_often / older_sum
+
+    return younger_symptoms_book_never, younger_symptoms_book_seldom, younger_symptoms_book_sometimes, younger_symptoms_book_often, younger_symptoms_book_very_often, older_symptoms_book_never, older_symptoms_book_seldom, older_symptoms_book_sometimes, older_symptoms_book_often, older_symptoms_book_very_often, younger_symptoms_movie_never, younger_symptoms_movie_seldom, younger_symptoms_movie_sometimes, younger_symptoms_movie_often, younger_symptoms_movie_very_often, older_symptoms_movie_never, older_symptoms_movie_seldom, older_symptoms_movie_sometimes, older_symptoms_movie_often, older_symptoms_movie_very_often
+
+
+def get_dispersion_age_snacks():
+
+    younger_snacks_book_never, younger_snacks_book_seldom, younger_snacks_book_sometimes, younger_snacks_book_often, younger_snacks_book_very_often, older_snacks_book_never, older_snacks_book_seldom, older_snacks_book_sometimes, older_snacks_book_often, older_snacks_book_very_often, younger_snacks_movie_never, younger_snacks_movie_seldom, younger_snacks_movie_sometimes, younger_snacks_movie_often, younger_snacks_movie_very_often, older_snacks_movie_never, older_snacks_movie_seldom, older_snacks_movie_sometimes, older_snacks_movie_often, older_snacks_movie_very_often = filter_by_age_and_snacks()
+    younger_sum, older_sum = get_age_dispersion()
+
+    younger_snacks_book_never = younger_snacks_book_never / younger_sum
+    younger_snacks_book_seldom = younger_snacks_book_seldom / younger_sum
+    younger_snacks_book_sometimes = younger_snacks_book_sometimes / younger_sum
+    younger_snacks_book_often = younger_snacks_book_often / younger_sum
+    younger_snacks_book_very_often = younger_snacks_book_very_often / younger_sum
+
+    # print(younger_snacks_book_never)
+    # print(younger_snacks_book_seldom)
+    # print(younger_snacks_book_sometimes)
+    # print(younger_snacks_book_often)
+    # print(younger_snacks_book_very_often)
+    # print(younger_snacks_book_never + younger_snacks_book_seldom + younger_snacks_book_sometimes + younger_snacks_book_often + younger_snacks_book_very_often)
+
+    younger_snacks_movie_never = younger_snacks_movie_never / younger_sum
+    younger_snacks_movie_seldom = younger_snacks_movie_seldom / younger_sum
+    younger_snacks_movie_sometimes = younger_snacks_movie_sometimes / younger_sum
+    younger_snacks_movie_often = younger_snacks_movie_often / younger_sum
+    younger_snacks_movie_very_often = younger_snacks_movie_very_often / younger_sum
+
+    older_snacks_book_never = older_snacks_book_never / older_sum
+    older_snacks_book_seldom = older_snacks_book_seldom / older_sum
+    older_snacks_book_sometimes = older_snacks_book_sometimes / older_sum
+    older_snacks_book_often = older_snacks_book_often / older_sum
+    older_snacks_book_very_often = older_snacks_book_very_often / older_sum
+
+    older_snacks_movie_never = older_snacks_movie_never / older_sum
+    older_snacks_movie_seldom = older_snacks_movie_seldom / older_sum
+    older_snacks_movie_sometimes = older_snacks_movie_sometimes / older_sum
+    older_snacks_movie_often = older_snacks_movie_often / older_sum
+    older_snacks_movie_very_often = older_snacks_movie_very_often / older_sum
+
+    return younger_snacks_book_never, younger_snacks_book_seldom, younger_snacks_book_sometimes, younger_snacks_book_often, younger_snacks_book_very_often, older_snacks_book_never, older_snacks_book_seldom, older_snacks_book_sometimes, older_snacks_book_often, older_snacks_book_very_often, younger_snacks_movie_never, younger_snacks_movie_seldom, younger_snacks_movie_sometimes, younger_snacks_movie_often, younger_snacks_movie_very_often, older_snacks_movie_never, older_snacks_movie_seldom, older_snacks_movie_sometimes, older_snacks_movie_often, older_snacks_movie_very_often 
+    
+
+def get_dispersion_age_motivation():
+
+    younger_motivation_book_never, younger_motivation_book_seldom, younger_motivation_book_sometimes, younger_motivation_book_often, younger_motivation_book_very_often, older_motivation_book_never, older_motivation_book_seldom, older_motivation_book_sometimes, older_motivation_book_often, older_motivation_book_very_often, younger_motivation_movie_never, younger_motivation_movie_seldom, younger_motivation_movie_sometimes, younger_motivation_movie_often, younger_motivation_movie_very_often, older_motivation_movie_never, older_motivation_movie_seldom, older_motivation_movie_sometimes, older_motivation_movie_often, older_motivation_movie_very_often = filter_by_age_and_motivation()
+    younger_sum, older_sum = get_age_dispersion()
+
+    younger_motivation_book_never = younger_motivation_book_never / younger_sum
+    younger_motivation_book_seldom = younger_motivation_book_seldom / younger_sum
+    younger_motivation_book_sometimes = younger_motivation_book_sometimes / younger_sum
+    younger_motivation_book_often = younger_motivation_book_often / younger_sum
+    younger_motivation_book_very_often = younger_motivation_book_very_often / younger_sum
+
+    print(younger_motivation_book_never)
+    print(younger_motivation_book_seldom)
+    print(younger_motivation_book_sometimes)
+    print(younger_motivation_book_often)
+    print(younger_motivation_book_very_often)
+    print()
+    print(younger_motivation_book_never + younger_motivation_book_seldom + younger_motivation_book_sometimes + younger_motivation_book_often + younger_motivation_book_very_often)
+    print()
+
+    younger_motivation_movie_never = younger_motivation_movie_never / younger_sum
+    younger_motivation_movie_seldom = younger_motivation_movie_seldom / younger_sum
+    younger_motivation_movie_sometimes = younger_motivation_movie_sometimes / younger_sum
+    younger_motivation_movie_often = younger_motivation_movie_often / younger_sum
+    younger_motivation_movie_very_often = younger_motivation_movie_very_often / younger_sum
+
+    print(younger_motivation_movie_never)
+    print(younger_motivation_movie_seldom)
+    print(younger_motivation_movie_sometimes)
+    print(younger_motivation_movie_often)
+    print(younger_motivation_movie_very_often)
+    print()
+    print(younger_motivation_movie_never + younger_motivation_movie_seldom + younger_motivation_movie_sometimes + younger_motivation_movie_often + younger_motivation_movie_very_often)
+
+    older_motivation_book_never = older_motivation_book_never / older_sum
+    older_motivation_book_seldom = older_motivation_book_seldom / older_sum
+    older_motivation_book_sometimes = older_motivation_book_sometimes / older_sum
+    older_motivation_book_often = older_motivation_book_often / older_sum
+    older_motivation_book_very_often = older_motivation_book_very_often / older_sum
+
+    older_motivation_movie_never = older_motivation_movie_never / older_sum
+    older_motivation_movie_seldom = older_motivation_movie_seldom / older_sum
+    older_motivation_movie_sometimes = older_motivation_movie_sometimes / older_sum
+    older_motivation_movie_often = older_motivation_movie_often / older_sum
+    older_motivation_movie_very_often = older_motivation_movie_very_often / older_sum
+
+    return younger_motivation_book_never, younger_motivation_book_seldom, younger_motivation_book_sometimes, younger_motivation_book_often, younger_motivation_book_very_often, older_motivation_book_never, older_motivation_book_seldom, older_motivation_book_sometimes, older_motivation_book_often, older_motivation_book_very_often, younger_motivation_movie_never, younger_motivation_movie_seldom, younger_motivation_movie_sometimes, younger_motivation_movie_often, younger_motivation_movie_very_often, older_motivation_movie_never, older_motivation_movie_seldom, older_motivation_movie_sometimes, older_motivation_movie_often, older_motivation_movie_very_often
+
+
+# def main():
+#     # get_dispersion_age_symptoms()
+#     # get_dispersion_age_snacks()
+#     get_dispersion_age_motivation()
 
 # if __name__ == main():
 #     main()

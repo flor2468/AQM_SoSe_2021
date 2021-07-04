@@ -51,7 +51,7 @@ def create_simple_bar_chart(array_1, array_2, topic):
     plt.show()
 
 
-def create_bar_chart_with_multiple_bars():
+def create_mean_bar_chart_with_multiple_bars():
 
     younger_symptoms_book, younger_symptoms_movie, older_symptoms_book, older_symptoms_movie, younger_snacks_book, younger_snacks_movie, older_snacks_book, older_snacks_movie, younger_motivation_book, younger_motivation_movie, older_motivation_book, older_motivation_movie = filter_by_age_and_physical_aspects()
 
@@ -239,6 +239,269 @@ def create_age_time_bar_chart():
     plt.show()
 
 
+def create_age_symptoms_bar_chart():
+    
+    younger_symptoms_book_never, younger_symptoms_book_seldom, younger_symptoms_book_sometimes, younger_symptoms_book_often, younger_symptoms_book_very_often, older_symptoms_book_never, older_symptoms_book_seldom, older_symptoms_book_sometimes, older_symptoms_book_often, older_symptoms_book_very_often, younger_symptoms_movie_never, younger_symptoms_movie_seldom, younger_symptoms_movie_sometimes, younger_symptoms_movie_often, younger_symptoms_movie_very_often, older_symptoms_movie_never, older_symptoms_movie_seldom, older_symptoms_movie_sometimes, older_symptoms_movie_often, older_symptoms_movie_very_often = get_dispersion_age_symptoms()
+
+    # BOOK
+    book_data = [[younger_symptoms_book_never, younger_symptoms_book_seldom, younger_symptoms_book_sometimes, younger_symptoms_book_often, younger_symptoms_book_very_often], 
+            [older_symptoms_book_never, older_symptoms_book_seldom, older_symptoms_book_sometimes, older_symptoms_book_often, older_symptoms_book_very_often]]
+
+    Pos = np.arange(5)
+
+    fig, ax = plt.subplots()
+
+    ax.bar(Pos + 0.00, book_data[0], color='lightgreen', width=0.25)
+    ax.bar(Pos + 0.25, book_data[1], color='orange', width=0.25)
+    ax.set_xticks([0, 1, 2, 3, 4])
+    ax.set_xticklabels(['never', 'seldom', 'sometimes', 'often', 'very often'])
+    # ax.xaxis.set_ticks_position('top')
+    ax.set_yticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('frequency *')
+    # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
+
+    younger_patch = mpatches.Patch(color='lightgreen', label='age groups A-C')
+    older_patch = mpatches.Patch(color='orange', label='age groups D-F')
+
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
+    ax.legend(handles=[younger_patch, older_patch], loc='upper center', bbox_to_anchor=(0.5, -0.15), fancybox=True, shadow=True, ncol=5)
+
+    plt.savefig('diagrams/bar_charts/age_symptoms_book_version_1.png')
+
+    plt.show()
+
+    # MOVIE
+    movie_data = [[younger_symptoms_movie_never, younger_symptoms_movie_seldom, younger_symptoms_movie_sometimes, younger_symptoms_movie_often, younger_symptoms_movie_very_often], 
+            [older_symptoms_movie_never, older_symptoms_movie_seldom, older_symptoms_movie_sometimes, older_symptoms_movie_often, older_symptoms_movie_very_often]]
+
+    Pos = np.arange(5)
+
+    fig, ax = plt.subplots()
+
+    ax.bar(Pos + 0.00, movie_data[0], color='lightgreen', width=0.25)
+    ax.bar(Pos + 0.25, movie_data[1], color='orange', width=0.25)
+    ax.set_xticks([0, 1, 2, 3, 4])
+    ax.set_xticklabels(['never', 'seldom', 'sometimes', 'often', 'very often'])
+    # ax.xaxis.set_ticks_position('top')
+    ax.set_yticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('frequency *')
+    # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
+
+    younger_patch = mpatches.Patch(color='lightgreen', label='age groups A-C')
+    older_patch = mpatches.Patch(color='orange', label='age groups D-F')
+
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
+    ax.legend(handles=[younger_patch, older_patch], loc='upper center', bbox_to_anchor=(0.5, -0.15), fancybox=True, shadow=True, ncol=5)
+
+    plt.savefig('diagrams/bar_charts/age_symptoms_movie_version_1.png')
+
+    plt.show()
+
+
+def create_age_symptoms_stacked_bar_chart():
+
+    younger_symptoms_book_never, younger_symptoms_book_seldom, younger_symptoms_book_sometimes, younger_symptoms_book_often, younger_symptoms_book_very_often, older_symptoms_book_never, older_symptoms_book_seldom, older_symptoms_book_sometimes, older_symptoms_book_often, older_symptoms_book_very_often, younger_symptoms_movie_never, younger_symptoms_movie_seldom, younger_symptoms_movie_sometimes, younger_symptoms_movie_often, younger_symptoms_movie_very_often, older_symptoms_movie_never, older_symptoms_movie_seldom, older_symptoms_movie_sometimes, older_symptoms_movie_often, older_symptoms_movie_very_often = get_dispersion_age_symptoms()
+
+    labels = ['age groups A-C', 'age groups D-F']
+
+    # BOOK
+    never = [younger_symptoms_book_never, older_symptoms_book_never]
+    # print(never)
+    seldom = [younger_symptoms_book_seldom, older_symptoms_book_seldom]
+    # print(seldom)
+    sometimes = [younger_symptoms_book_sometimes, older_symptoms_book_sometimes]
+    # print(sometimes)
+    often = [younger_symptoms_book_often, older_symptoms_book_often]
+    # print(often)
+    very_often = [younger_symptoms_book_very_often, older_symptoms_book_very_often]
+    # print(very_often)
+
+    width = 0.7
+
+    fig, ax = plt.subplots()
+
+    ax.bar(labels, never, width, label='never', color='lightgreen')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('age groups')
+    # ax.legend()
+
+    plt.savefig('diagrams/bar_charts/age_symptoms_book_version_2.png')
+
+    plt.show()
+
+    # MOVIE 
+    never = [younger_symptoms_movie_never, older_symptoms_movie_never]
+    # print(never)
+    seldom = [younger_symptoms_movie_seldom, older_symptoms_movie_seldom]
+    # print(seldom)
+    sometimes = [younger_symptoms_movie_sometimes, older_symptoms_movie_sometimes]
+    # print(sometimes)
+    often = [younger_symptoms_movie_often, older_symptoms_movie_often]
+    # print(often)
+    very_often = [younger_symptoms_movie_very_often, older_symptoms_movie_very_often]
+    # print(very_often)
+
+    width = 0.7
+
+    fig, ax = plt.subplots()
+
+    ax.bar(labels, never, width, label='never', color='lightgreen')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('age groups')
+    # ax.legend()
+
+    plt.savefig('diagrams/bar_charts/age_symptoms_movie_version_2.png')
+
+    plt.show()
+
+
+def create_age_snacks_stacked_bar_chart():
+
+    younger_snacks_book_never, younger_snacks_book_seldom, younger_snacks_book_sometimes, younger_snacks_book_often, younger_snacks_book_very_often, older_snacks_book_never, older_snacks_book_seldom, older_snacks_book_sometimes, older_snacks_book_often, older_snacks_book_very_often, younger_snacks_movie_never, younger_snacks_movie_seldom, younger_snacks_movie_sometimes, younger_snacks_movie_often, younger_snacks_movie_very_often, older_snacks_movie_never, older_snacks_movie_seldom, older_snacks_movie_sometimes, older_snacks_movie_often, older_snacks_movie_very_often = get_dispersion_age_snacks()
+
+    labels = ['age groups A-C', 'age groups D-F']
+
+    # BOOK
+    never = [younger_snacks_book_never, older_snacks_book_never]
+    # print(never)
+    seldom = [younger_snacks_book_seldom, older_snacks_book_seldom]
+    # print(seldom)
+    sometimes = [younger_snacks_book_sometimes, older_snacks_book_sometimes]
+    # print(sometimes)
+    often = [younger_snacks_book_often, older_snacks_book_often]
+    # print(often)
+    very_often = [younger_snacks_book_very_often, older_snacks_book_very_often]
+    # print(very_often)
+
+    width = 0.7
+
+    fig, ax = plt.subplots()
+
+    ax.bar(labels, never, width, label='never', color='lightgreen')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('age groups')
+    # ax.legend()
+
+    plt.savefig('diagrams/bar_charts/age_snacks_book_version_2.png')
+
+    plt.show()
+
+    # MOVIE 
+    never = [younger_snacks_movie_never, older_snacks_movie_never]
+    # print(never)
+    seldom = [younger_snacks_movie_seldom, older_snacks_movie_seldom]
+    # print(seldom)
+    sometimes = [younger_snacks_movie_sometimes, older_snacks_movie_sometimes]
+    # print(sometimes)
+    often = [younger_snacks_movie_often, older_snacks_movie_often]
+    # print(often)
+    very_often = [younger_snacks_movie_very_often, older_snacks_movie_very_often]
+    # print(very_often)
+
+    width = 0.7
+
+    fig, ax = plt.subplots()
+
+    ax.bar(labels, never, width, label='never', color='lightgreen')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('age groups')
+    # ax.legend()
+
+    plt.savefig('diagrams/bar_charts/age_snacks_movie_version_2.png')
+
+    plt.show()
+
+
+def create_age_motivation_stacked_bar_chart():
+
+    younger_motivation_book_never, younger_motivation_book_seldom, younger_motivation_book_sometimes, younger_motivation_book_often, younger_motivation_book_very_often, older_motivation_book_never, older_motivation_book_seldom, older_motivation_book_sometimes, older_motivation_book_often, older_motivation_book_very_often, younger_motivation_movie_never, younger_motivation_movie_seldom, younger_motivation_movie_sometimes, younger_motivation_movie_often, younger_motivation_movie_very_often, older_motivation_movie_never, older_motivation_movie_seldom, older_motivation_movie_sometimes, older_motivation_movie_often, older_motivation_movie_very_often = get_dispersion_age_motivation()
+
+    labels = ['age groups A-C', 'age groups D-F']
+
+    # BOOK
+    never = [younger_motivation_book_never, older_motivation_book_never]
+    # print(never)
+    seldom = [younger_motivation_book_seldom, older_motivation_book_seldom]
+    # print(seldom)
+    sometimes = [younger_motivation_book_sometimes, older_motivation_book_sometimes]
+    # print(sometimes)
+    often = [younger_motivation_book_often, older_motivation_book_often]
+    # print(often)
+    very_often = [younger_motivation_book_very_often, older_motivation_book_very_often]
+    # print(very_often)
+
+    width = 0.7
+
+    fig, ax = plt.subplots()
+
+    ax.bar(labels, never, width, label='never', color='lightgreen')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('age groups')
+    # ax.legend()
+
+    plt.savefig('diagrams/bar_charts/age_motivation_book_version_2.png')
+
+    plt.show()
+
+    # MOVIE 
+    never = [younger_motivation_movie_never, older_motivation_movie_never]
+    # print(never)
+    seldom = [younger_motivation_movie_seldom, older_motivation_movie_seldom]
+    # print(seldom)
+    sometimes = [younger_motivation_movie_sometimes, older_motivation_movie_sometimes]
+    # print(sometimes)
+    often = [younger_motivation_movie_often, older_motivation_movie_often]
+    # print(often)
+    very_often = [younger_motivation_movie_very_often, older_motivation_movie_very_often]
+    # print(very_often)
+
+    width = 0.7
+
+    fig, ax = plt.subplots()
+
+    ax.bar(labels, never, width, label='never', color='lightgreen')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('age groups')
+    # ax.legend()
+
+    plt.savefig('diagrams/bar_charts/age_motivation_movie_version_2.png')
+
+    plt.show()
+
 
 
 def main():
@@ -251,9 +514,14 @@ def main():
     # create_simple_bar_chart(snacks_book, snacks_movie, 'snacks')
     # create_simple_bar_chart(motivation_book, motivation_movie, 'motivation')
 
-    # create_bar_chart_with_multiple_bars()
+    # create_mean_bar_chart_with_multiple_bars()
 
-    create_age_time_bar_chart()
+    # create_age_time_bar_chart()
+    # create_age_symptoms_bar_chart()
+
+    # create_age_symptoms_stacked_bar_chart()
+    # create_age_snacks_stacked_bar_chart()
+    create_age_motivation_stacked_bar_chart()
 
 
 if __name__ == main():
