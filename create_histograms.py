@@ -34,6 +34,8 @@ def create_histogram(which_histogram):
         # plt.xticks(np.arange(9,61,1))
         ax.set_xticks([0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65])
         ax.set_yticks([0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22])
+        ax.set_ylabel('amount')
+        ax.set_xlabel('age')
 
         plt.savefig('diagrams/histograms/age_histogram.png')
 
@@ -54,6 +56,10 @@ def create_histogram(which_histogram):
         # plt.xticks(np.arange(9,61,1))
         ax.set_xticklabels(['in the morning', 'at noon', 'in the\nafternoon', 'in the\nevening', 'at night'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70])
+        ax.set_ylabel('amount')
+        ax.set_xlabel('part of the day')
+        box = ax.get_position()
+        ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
 
         plt.savefig('diagrams/histograms/time_book_histogram.png')
 
@@ -68,6 +74,10 @@ def create_histogram(which_histogram):
         # plt.xticks(np.arange(9,61,1))
         ax.set_xticklabels(['in the morning', 'at noon', 'in the\nafternoon', 'in the\nevening', 'at night'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70])
+        ax.set_ylabel('amount')
+        ax.set_xlabel('part of the day')
+        box = ax.get_position()
+        ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
 
         plt.savefig('diagrams/histograms/time_movie_histogram.png')
 
@@ -92,6 +102,9 @@ def create_histogram(which_histogram):
         ax.set_xticklabels(['never\n(1)', 'seldom\n(2)', 'sometimes\n(3)', 'often\n(4)', 'very often\n(5)'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
         ax.set_ylabel('amount')
+        ax.set_xlabel('frequency *')
+        box = ax.get_position()
+        ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
 
         plt.savefig('diagrams/histograms/symptoms_book_histogram.png')
 
@@ -110,6 +123,9 @@ def create_histogram(which_histogram):
         ax.set_xticklabels(['never\n(1)', 'seldom\n(2)', 'sometimes\n(3)', 'often\n(4)', 'very often\n(5)'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
         ax.set_ylabel('amount')
+        ax.set_xlabel('frequency *')
+        box = ax.get_position()
+        ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
 
         plt.savefig('diagrams/histograms/symptoms_movie_histogram.png')
 
@@ -134,6 +150,9 @@ def create_histogram(which_histogram):
         ax.set_xticklabels(['never\n(1)', 'seldom\n(2)', 'sometimes\n(3)', 'often\n(4)', 'very often\n(5)'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
         ax.set_ylabel('amount')
+        ax.set_xlabel('frequency *')
+        box = ax.get_position()
+        ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
 
         plt.savefig('diagrams/histograms/snacks_book_histogram.png')
 
@@ -152,6 +171,9 @@ def create_histogram(which_histogram):
         ax.set_xticklabels(['never\n(1)', 'seldom\n(2)', 'sometimes\n(3)', 'often\n(4)', 'very often\n(5)'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
         ax.set_ylabel('amount')
+        ax.set_xlabel('frequency *')
+        box = ax.get_position()
+        ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
 
         plt.savefig('diagrams/histograms/snacks_movie_histogram.png')
 
@@ -174,8 +196,9 @@ def create_histogram(which_histogram):
         # plt.xticks(np.arange(9,61,1))
         ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
-        ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
+        ax.set_yticks([0, 5, 10, 15, 20])
         ax.set_ylabel('amount')
+        ax.set_xlabel('motivation *')
 
         plt.savefig('diagrams/histograms/motivation_book_histogram.png')
 
@@ -192,8 +215,9 @@ def create_histogram(which_histogram):
         # plt.xticks(np.arange(9,61,1))
         ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
-        ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
+        ax.set_yticks([0, 5, 10, 15, 20])
         ax.set_ylabel('amount')
+        ax.set_xlabel('motivation *')
 
         plt.savefig('diagrams/histograms/motivation_movie_histogram.png')
 
@@ -202,10 +226,10 @@ def create_histogram(which_histogram):
 
 
 def main():
-    # create_histogram('age')
-    # create_histogram('time')
-    # create_histogram('symptoms')
-    # create_histogram('snacks')
+    create_histogram('age')
+    create_histogram('time')
+    create_histogram('symptoms')
+    create_histogram('snacks')
     create_histogram('motivation')
 
 
