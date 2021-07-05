@@ -14,7 +14,7 @@ def create_simple_bar_chart(array_1, array_2, topic):
     fig, ax = plt.subplots()
     labels = ['reading a book', 'watching a movie / a series']
     values = [mean_1, mean_2]
-    ax.bar(labels, values, color=['purple', 'goldenrod'])
+    ax.bar(labels, values, color=['#00283b', '#ffa600'])
 
     if (topic == 'symptoms' or topic == 'snacks'):
 
@@ -103,16 +103,16 @@ def create_mean_bar_chart_with_multiple_bars():
 
     fig, ax = plt.subplots()
     # plt.yticks(Pos-(1/6), ["", "Level 2", "Level 3", "Level 4", "Level 5"])
-    ax.bar(Pos + 0.00, data[0], color='purple', width=0.25)
-    ax.bar(Pos + 0.25, data[1], color='goldenrod', width=0.25)
+    ax.bar(Pos + 0.00, data[0], color='#00283b', width=0.25)
+    ax.bar(Pos + 0.25, data[1], color='#ffa600', width=0.25)
     plt.xticks(Pos+0.12, ["age groups A-C", "age groups D-F"])
     ax.set_yticks([1, 2, 3, 4, 5])
     ax.set_yticklabels(['never\n(1)', 'seldom\n(2)', 'some\ntimes\n(3)', 'often\n(4)', 'very\noften\n(5)'])
     ax.set_ylabel('frequency *')
     # plt.text(-0.5, -1.0, '*  of having symptoms like \na headache, burning eyes etc.')
 
-    book_patch = mpatches.Patch(color='purple', label='reading a book')
-    movie_patch = mpatches.Patch(color='goldenrod', label='watching a movie')
+    book_patch = mpatches.Patch(color='#00283b', label='reading a book')
+    movie_patch = mpatches.Patch(color='#ffa600', label='watching a movie')
 
     box = ax.get_position()
     ax.set_position([box.x0 * 1.2, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -130,16 +130,16 @@ def create_mean_bar_chart_with_multiple_bars():
 
     fig, ax = plt.subplots()
     # plt.yticks(Pos-(1/6), ["", "Level 2", "Level 3", "Level 4", "Level 5"])
-    ax.bar(Pos + 0.00, data[0], color='purple', width=0.25)
-    ax.bar(Pos + 0.25, data[1], color='goldenrod', width=0.25)
+    ax.bar(Pos + 0.00, data[0], color='#00283b', width=0.25)
+    ax.bar(Pos + 0.25, data[1], color='#ffa600', width=0.25)
     plt.xticks(Pos+0.12, ["age groups A-C", "age groups D-F"])
     ax.set_yticks([1, 2, 3, 4, 5])
     ax.set_yticklabels(['never\n(1)', 'seldom\n(2)', 'some\ntimes\n(3)', 'often\n(4)', 'very\noften\n(5)'])
     ax.set_ylabel('frequency *')
     # plt.text(-0.5, -1.0, '*  of eating snacks during the activity')
 
-    book_patch = mpatches.Patch(color='purple', label='reading a book')
-    movie_patch = mpatches.Patch(color='goldenrod', label='watching a movie')
+    book_patch = mpatches.Patch(color='#00283b', label='reading a book')
+    movie_patch = mpatches.Patch(color='#ffa600', label='watching a movie')
 
     box = ax.get_position()
     ax.set_position([box.x0 * 1.2, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -157,15 +157,15 @@ def create_mean_bar_chart_with_multiple_bars():
 
     fig, ax = plt.subplots()
     # plt.yticks(Pos-(1/6), ["", "Level 2", "Level 3", "Level 4", "Level 5"])
-    ax.bar(Pos + 0.00, data[0], color='purple', width=0.25)
-    ax.bar(Pos + 0.25, data[1], color='goldenrod', width=0.25)
+    ax.bar(Pos + 0.00, data[0], color='#00283b', width=0.25)
+    ax.bar(Pos + 0.25, data[1], color='#ffa600', width=0.25)
     plt.xticks(Pos+0.12, ["age groups A-C", "age groups D-F"])
     ax.set_yticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     ax.set_ylabel('motivation *')
     # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
 
-    book_patch = mpatches.Patch(color='purple', label='reading a book')
-    movie_patch = mpatches.Patch(color='goldenrod', label='watching a movie')
+    book_patch = mpatches.Patch(color='#00283b', label='reading a book')
+    movie_patch = mpatches.Patch(color='#ffa600', label='watching a movie')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -191,8 +191,8 @@ def create_age_time_bar_chart():
 
     fig, ax = plt.subplots()
 
-    ax.bar(Pos + 0.00, book_data[0], color='lightgreen', width=0.25)
-    ax.bar(Pos + 0.25, book_data[1], color='orange', width=0.25)
+    ax.bar(Pos + 0.00, book_data[0], color='#004a5a', width=0.25)
+    ax.bar(Pos + 0.25, book_data[1], color='#90a201', width=0.25)
     ax.set_xticks([0, 1, 2, 3, 4])
     ax.set_xticklabels(['in the\nmorning', 'at noon', 'in the\nafternoon', 'in the\nevening', 'at night'])
     ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
@@ -201,8 +201,8 @@ def create_age_time_bar_chart():
     ax.set_xlabel('part of the day')
     # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
 
-    younger_patch = mpatches.Patch(color='lightgreen', label='age groups A-C')
-    older_patch = mpatches.Patch(color='orange', label='age groups D-F')
+    younger_patch = mpatches.Patch(color='#004a5a', label='age groups A-C')
+    older_patch = mpatches.Patch(color='#90a201', label='age groups D-F')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height])
@@ -221,8 +221,8 @@ def create_age_time_bar_chart():
 
     fig, ax = plt.subplots()
 
-    ax.bar(Pos + 0.00, movie_data[0], color='lightgreen', width=0.25)
-    ax.bar(Pos + 0.25, movie_data[1], color='orange', width=0.25)
+    ax.bar(Pos + 0.00, movie_data[0], color='#004a5a', width=0.25)
+    ax.bar(Pos + 0.25, movie_data[1], color='#90a201', width=0.25)
     ax.set_xticks([0, 1, 2, 3, 4])
     ax.set_xticklabels(['in the\nmorning', 'at noon', 'in the\nafternoon', 'in the\nevening', 'at night'])
     ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
@@ -231,8 +231,8 @@ def create_age_time_bar_chart():
     ax.set_xlabel('part of the day')
     # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
 
-    younger_patch = mpatches.Patch(color='lightgreen', label='age groups A-C')
-    older_patch = mpatches.Patch(color='orange', label='age groups D-F')
+    younger_patch = mpatches.Patch(color='#004a5a', label='age groups A-C')
+    older_patch = mpatches.Patch(color='#90a201', label='age groups D-F')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height])
@@ -255,8 +255,8 @@ def create_age_symptoms_bar_chart():
 
     fig, ax = plt.subplots()
 
-    ax.bar(Pos + 0.00, book_data[0], color='lightgreen', width=0.25)
-    ax.bar(Pos + 0.25, book_data[1], color='orange', width=0.25)
+    ax.bar(Pos + 0.00, book_data[0], color='#004a5a', width=0.25)
+    ax.bar(Pos + 0.25, book_data[1], color='#90a201', width=0.25)
     ax.set_xticks([0, 1, 2, 3, 4])
     ax.set_xticklabels(['never', 'seldom', 'sometimes', 'often', 'very often'])
     # ax.xaxis.set_ticks_position('top')
@@ -265,8 +265,8 @@ def create_age_symptoms_bar_chart():
     ax.set_xlabel('frequency *')
     # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
 
-    younger_patch = mpatches.Patch(color='lightgreen', label='age groups A-C')
-    older_patch = mpatches.Patch(color='orange', label='age groups D-F')
+    younger_patch = mpatches.Patch(color='#004a5a', label='age groups A-C')
+    older_patch = mpatches.Patch(color='#90a201', label='age groups D-F')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -284,8 +284,8 @@ def create_age_symptoms_bar_chart():
 
     fig, ax = plt.subplots()
 
-    ax.bar(Pos + 0.00, movie_data[0], color='lightgreen', width=0.25)
-    ax.bar(Pos + 0.25, movie_data[1], color='orange', width=0.25)
+    ax.bar(Pos + 0.00, movie_data[0], color='#004a5a', width=0.25)
+    ax.bar(Pos + 0.25, movie_data[1], color='#90a201', width=0.25)
     ax.set_xticks([0, 1, 2, 3, 4])
     ax.set_xticklabels(['never', 'seldom', 'sometimes', 'often', 'very often'])
     # ax.xaxis.set_ticks_position('top')
@@ -294,8 +294,8 @@ def create_age_symptoms_bar_chart():
     ax.set_xlabel('frequency *')
     # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
 
-    younger_patch = mpatches.Patch(color='lightgreen', label='age groups A-C')
-    older_patch = mpatches.Patch(color='orange', label='age groups D-F')
+    younger_patch = mpatches.Patch(color='#004a5a', label='age groups A-C')
+    older_patch = mpatches.Patch(color='#90a201', label='age groups D-F')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -328,21 +328,21 @@ def create_age_symptoms_stacked_bar_chart():
 
     fig, ax = plt.subplots()
 
-    ax.bar(labels, never, width, label='never', color='lightgreen')
-    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
-    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
-    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
-    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+    ax.bar(labels, never, width, label='never', color='#00283b')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='#00525d')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='#007c50')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='#779d18')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='#ffa600')
 
     ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
     ax.set_ylabel('percentage')
     ax.set_xlabel('age groups')
     
-    never_patch = mpatches.Patch(color='lightgreen', label='never')
-    seldom_patch = mpatches.Patch(color='purple', label='seldom')
-    sometimes_patch = mpatches.Patch(color='gold', label='sometimes')
-    often_patch = mpatches.Patch(color='magenta', label='often')
-    very_often_patch = mpatches.Patch(color='cyan', label='very often')
+    never_patch = mpatches.Patch(color='#00283b', label='never')
+    seldom_patch = mpatches.Patch(color='#00525d', label='seldom')
+    sometimes_patch = mpatches.Patch(color='#007c50', label='sometimes')
+    often_patch = mpatches.Patch(color='#779d18', label='often')
+    very_often_patch = mpatches.Patch(color='#ffa600', label='very often')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -368,21 +368,21 @@ def create_age_symptoms_stacked_bar_chart():
 
     fig, ax = plt.subplots()
 
-    ax.bar(labels, never, width, label='never', color='lightgreen')
-    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
-    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
-    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
-    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+    ax.bar(labels, never, width, label='never', color='#00283b')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='#00525d')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='#007c50')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='#779d18')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='#ffa600')
 
     ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
     ax.set_ylabel('percentage')
     ax.set_xlabel('age groups')
 
-    never_patch = mpatches.Patch(color='lightgreen', label='never')
-    seldom_patch = mpatches.Patch(color='purple', label='seldom')
-    sometimes_patch = mpatches.Patch(color='gold', label='sometimes')
-    often_patch = mpatches.Patch(color='magenta', label='often')
-    very_often_patch = mpatches.Patch(color='cyan', label='very often')
+    never_patch = mpatches.Patch(color='#00283b', label='never')
+    seldom_patch = mpatches.Patch(color='#00525d', label='seldom')
+    sometimes_patch = mpatches.Patch(color='#007c50', label='sometimes')
+    often_patch = mpatches.Patch(color='#779d18', label='often')
+    very_often_patch = mpatches.Patch(color='#ffa600', label='very often')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -416,21 +416,21 @@ def create_age_snacks_stacked_bar_chart():
 
     fig, ax = plt.subplots()
 
-    ax.bar(labels, never, width, label='never', color='lightgreen')
-    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
-    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
-    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
-    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+    ax.bar(labels, never, width, label='never', color='#00283b')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='#00525d')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='#007c50')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='#779d18')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='#ffa600')
 
     ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
     ax.set_ylabel('percentage')
     ax.set_xlabel('age groups')
     
-    never_patch = mpatches.Patch(color='lightgreen', label='never')
-    seldom_patch = mpatches.Patch(color='purple', label='seldom')
-    sometimes_patch = mpatches.Patch(color='gold', label='sometimes')
-    often_patch = mpatches.Patch(color='magenta', label='often')
-    very_often_patch = mpatches.Patch(color='cyan', label='very often')
+    never_patch = mpatches.Patch(color='#00283b', label='never')
+    seldom_patch = mpatches.Patch(color='#00525d', label='seldom')
+    sometimes_patch = mpatches.Patch(color='#007c50', label='sometimes')
+    often_patch = mpatches.Patch(color='#779d18', label='often')
+    very_often_patch = mpatches.Patch(color='#ffa600', label='very often')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -456,21 +456,21 @@ def create_age_snacks_stacked_bar_chart():
 
     fig, ax = plt.subplots()
 
-    ax.bar(labels, never, width, label='never', color='lightgreen')
-    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
-    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
-    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
-    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+    ax.bar(labels, never, width, label='never', color='#00283b')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='#00525d')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='#007c50')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='#779d18')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='#ffa600')
 
     ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
     ax.set_ylabel('percentage')
     ax.set_xlabel('age groups')
     
-    never_patch = mpatches.Patch(color='lightgreen', label='never')
-    seldom_patch = mpatches.Patch(color='purple', label='seldom')
-    sometimes_patch = mpatches.Patch(color='gold', label='sometimes')
-    often_patch = mpatches.Patch(color='magenta', label='often')
-    very_often_patch = mpatches.Patch(color='cyan', label='very often')
+    never_patch = mpatches.Patch(color='#00283b', label='never')
+    seldom_patch = mpatches.Patch(color='#00525d', label='seldom')
+    sometimes_patch = mpatches.Patch(color='#007c50', label='sometimes')
+    often_patch = mpatches.Patch(color='#779d18', label='often')
+    very_often_patch = mpatches.Patch(color='#ffa600', label='very often')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -504,21 +504,21 @@ def create_age_motivation_stacked_bar_chart():
 
     fig, ax = plt.subplots()
 
-    ax.bar(labels, never, width, label='never', color='lightgreen')
-    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
-    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
-    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
-    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+    ax.bar(labels, never, width, label='never', color='#00283b')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='#00525d')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='#007c50')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='#779d18')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='#ffa600')
 
     ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
     ax.set_ylabel('percentage')
     ax.set_xlabel('age groups')
     
-    never_patch = mpatches.Patch(color='lightgreen', label='1, 2')
-    seldom_patch = mpatches.Patch(color='purple', label='3, 4')
-    sometimes_patch = mpatches.Patch(color='gold', label='5, 6')
-    often_patch = mpatches.Patch(color='magenta', label='7, 8')
-    very_often_patch = mpatches.Patch(color='cyan', label='9, 10')
+    never_patch = mpatches.Patch(color='#00283b', label='never')
+    seldom_patch = mpatches.Patch(color='#00525d', label='seldom')
+    sometimes_patch = mpatches.Patch(color='#007c50', label='sometimes')
+    often_patch = mpatches.Patch(color='#779d18', label='often')
+    very_often_patch = mpatches.Patch(color='#ffa600', label='very often')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -544,21 +544,21 @@ def create_age_motivation_stacked_bar_chart():
 
     fig, ax = plt.subplots()
 
-    ax.bar(labels, never, width, label='never', color='lightgreen')
-    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='purple')
-    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='gold')
-    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='magenta')
-    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='cyan')
+    ax.bar(labels, never, width, label='never', color='#00283b')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='#00525d')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='#007c50')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='#779d18')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='#ffa600')
 
     ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
     ax.set_ylabel('percentage')
     ax.set_xlabel('age groups')
     
-    never_patch = mpatches.Patch(color='lightgreen', label='1, 2')
-    seldom_patch = mpatches.Patch(color='purple', label='3, 4')
-    sometimes_patch = mpatches.Patch(color='gold', label='5, 6')
-    often_patch = mpatches.Patch(color='magenta', label='7, 8')
-    very_often_patch = mpatches.Patch(color='cyan', label='9, 10')
+    never_patch = mpatches.Patch(color='#00283b', label='never')
+    seldom_patch = mpatches.Patch(color='#00525d', label='seldom')
+    sometimes_patch = mpatches.Patch(color='#007c50', label='sometimes')
+    often_patch = mpatches.Patch(color='#779d18', label='often')
+    very_often_patch = mpatches.Patch(color='#ffa600', label='very often')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -576,18 +576,18 @@ def main():
     motivation_movie = processDataToString(data, "How motivated are you to become physically active after you've watched a movie / a series on a scale from 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
     symptoms_book, symptoms_movie, snacks_book, snacks_movie, frequently_book = convert_string_scales_to_values()
 
-    # create_simple_bar_chart(symptoms_book, symptoms_movie, 'symptoms')
-    # create_simple_bar_chart(snacks_book, snacks_movie, 'snacks')
-    # create_simple_bar_chart(motivation_book, motivation_movie, 'motivation')
+    create_simple_bar_chart(symptoms_book, symptoms_movie, 'symptoms')
+    create_simple_bar_chart(snacks_book, snacks_movie, 'snacks')
+    create_simple_bar_chart(motivation_book, motivation_movie, 'motivation')
 
-    # create_mean_bar_chart_with_multiple_bars()
+    create_mean_bar_chart_with_multiple_bars()
 
     create_age_time_bar_chart()
-    # create_age_symptoms_bar_chart()
+    create_age_symptoms_bar_chart()
 
-    # create_age_symptoms_stacked_bar_chart()
-    # create_age_snacks_stacked_bar_chart()
-    # create_age_motivation_stacked_bar_chart()
+    create_age_symptoms_stacked_bar_chart()
+    create_age_snacks_stacked_bar_chart()
+    create_age_motivation_stacked_bar_chart()
 
 
 if __name__ == main():

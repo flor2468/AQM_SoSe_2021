@@ -26,7 +26,14 @@ def create_basic_diagrams(which_diagram):
         sizes = [male, female, diverse, no]
 
         fig, ax1 = plt.subplots()
-        ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=0, colors=['lightgreen', 'magenta', 'gold', 'mediumturquoise'])
+        _, _, chart = ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=0, colors=['#003f5c', '#7a5195', '#ef5675', '#ffa600'])
+
+        # change color of percentage text in the chart
+        # source: https://stackoverflow.com/questions/27898830/python-how-to-change-autopct-text-color-to-be-white-in-a-pie-chart
+        for i in range(len(chart)):
+            if i == 0 or i == 1:
+                chart[i].set_color('white')
+
         ax1.axis('equal')
 
         plt.savefig('diagrams/pie_charts/gender_pie_chart.png')
@@ -56,7 +63,14 @@ def create_basic_diagrams(which_diagram):
         sizes = [never, seldom, sometimes, often, very_often]
 
         fig, ax1 = plt.subplots()
-        ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=0, colors=['lightgreen', 'magenta', 'gold', 'mediumturquoise', 'orange'])
+        _, _, chart = ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=0, colors=['#00283b', '#00525d', '#007c50', '#779d18', '#ffa600'])
+        
+        # change color of percentage text in the chart
+        # source: https://stackoverflow.com/questions/27898830/python-how-to-change-autopct-text-color-to-be-white-in-a-pie-chart
+        for i in range(len(chart)):
+            if i == 1 or i == 2:
+                chart[i].set_color('white')
+
         ax1.axis('equal')
 
         plt.savefig('diagrams/pie_charts/frequently_book_pie_chart.png')
@@ -95,8 +109,26 @@ def create_basic_diagrams(which_diagram):
         sizes = [F, E, D, C, B, A]
 
         fig, ax1 = plt.subplots()
-        ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=45, colors=['lightgreen', 'magenta', 'gold', 'mediumturquoise', 'orange', 'red'])
+        _, _, chart = ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=0, colors=['#003f5c', '#444e86', '#955196', '#dd5182', '#ff6e54', '#ffa600'])
+        
+        # change color of percentage text in the chart
+        # source: https://stackoverflow.com/questions/27898830/python-how-to-change-autopct-text-color-to-be-white-in-a-pie-chart
+        for i in range(len(chart)):
+            if i == 0:
+                chart[i].set_color('white')
+        
         ax1.axis('equal')
 
         plt.savefig('diagrams/pie_charts/age_pie_chart.png')
         plt.show()
+
+
+def main():
+
+    # create_basic_diagrams('gender')
+    # create_basic_diagrams('book frequency')
+    create_basic_diagrams('age')
+
+
+if __name__ == main():
+    main()
