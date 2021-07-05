@@ -514,11 +514,11 @@ def create_age_motivation_stacked_bar_chart():
     ax.set_ylabel('percentage')
     ax.set_xlabel('age groups')
     
-    never_patch = mpatches.Patch(color='#00283b', label='never')
-    seldom_patch = mpatches.Patch(color='#00525d', label='seldom')
-    sometimes_patch = mpatches.Patch(color='#007c50', label='sometimes')
-    often_patch = mpatches.Patch(color='#779d18', label='often')
-    very_often_patch = mpatches.Patch(color='#ffa600', label='very often')
+    never_patch = mpatches.Patch(color='#00283b', label='1, 2')
+    seldom_patch = mpatches.Patch(color='#00525d', label='3, 4')
+    sometimes_patch = mpatches.Patch(color='#007c50', label='5, 6')
+    often_patch = mpatches.Patch(color='#779d18', label='7, 8')
+    very_often_patch = mpatches.Patch(color='#ffa600', label='9, 10')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -554,11 +554,11 @@ def create_age_motivation_stacked_bar_chart():
     ax.set_ylabel('percentage')
     ax.set_xlabel('age groups')
     
-    never_patch = mpatches.Patch(color='#00283b', label='never')
-    seldom_patch = mpatches.Patch(color='#00525d', label='seldom')
-    sometimes_patch = mpatches.Patch(color='#007c50', label='sometimes')
-    often_patch = mpatches.Patch(color='#779d18', label='often')
-    very_often_patch = mpatches.Patch(color='#ffa600', label='very often')
+    never_patch = mpatches.Patch(color='#00283b', label='1, 2')
+    seldom_patch = mpatches.Patch(color='#00525d', label='3, 4')
+    sometimes_patch = mpatches.Patch(color='#007c50', label='5, 6')
+    often_patch = mpatches.Patch(color='#779d18', label='7, 8')
+    very_often_patch = mpatches.Patch(color='#ffa600', label='9, 10')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -576,17 +576,17 @@ def main():
     motivation_movie = processDataToString(data, "How motivated are you to become physically active after you've watched a movie / a series on a scale from 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
     symptoms_book, symptoms_movie, snacks_book, snacks_movie, frequently_book = convert_string_scales_to_values()
 
-    create_simple_bar_chart(symptoms_book, symptoms_movie, 'symptoms')
-    create_simple_bar_chart(snacks_book, snacks_movie, 'snacks')
-    create_simple_bar_chart(motivation_book, motivation_movie, 'motivation')
+    # create_simple_bar_chart(symptoms_book, symptoms_movie, 'symptoms')
+    # create_simple_bar_chart(snacks_book, snacks_movie, 'snacks')
+    # create_simple_bar_chart(motivation_book, motivation_movie, 'motivation')
 
-    create_mean_bar_chart_with_multiple_bars()
+    # create_mean_bar_chart_with_multiple_bars()
 
-    create_age_time_bar_chart()
-    create_age_symptoms_bar_chart()
+    # create_age_time_bar_chart()
+    # create_age_symptoms_bar_chart()
 
-    create_age_symptoms_stacked_bar_chart()
-    create_age_snacks_stacked_bar_chart()
+    # create_age_symptoms_stacked_bar_chart()
+    # create_age_snacks_stacked_bar_chart()
     create_age_motivation_stacked_bar_chart()
 
 

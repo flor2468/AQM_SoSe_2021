@@ -29,7 +29,7 @@ def create_histogram(which_histogram):
         
 
         ax = plt.figure().gca()
-        plt.hist(age, bins = bins, rwidth=0.9, color='#007c50', align='left') 
+        plt.hist(age, bins = bins, rwidth=0.9, color='#955196', align='left') 
         plt.xlim([0, 65])
         # plt.xticks(np.arange(9,61,1))
         ax.set_xticks([0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65])

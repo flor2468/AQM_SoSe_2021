@@ -109,12 +109,12 @@ def create_basic_diagrams(which_diagram):
         sizes = [F, E, D, C, B, A]
 
         fig, ax1 = plt.subplots()
-        _, _, chart = ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=0, colors=['#003f5c', '#444e86', '#955196', '#dd5182', '#ff6e54', '#ffa600'])
+        _, _, chart = ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=0, colors=['#ffa600', '#ff6e54', '#dd5182', '#955196', '#444e86', '#003f5c'])
         
         # change color of percentage text in the chart
         # source: https://stackoverflow.com/questions/27898830/python-how-to-change-autopct-text-color-to-be-white-in-a-pie-chart
         for i in range(len(chart)):
-            if i == 0:
+            if i == 4 or i == 5:
                 chart[i].set_color('white')
         
         ax1.axis('equal')
