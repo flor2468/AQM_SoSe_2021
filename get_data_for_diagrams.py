@@ -877,8 +877,17 @@ def filter_by_frequency_and_stress():
     very_often_stress_movie_78 = 0
     very_often_stress_movie_910 = 0
 
+    never_count = 0
+    seldom_count = 0
+    sometimes_count = 0
+    often_count = 0
+    very_often_count = 0
+
     for i in range(len(frequently_book)):
         if frequently_book[i] == 'never':
+
+            never_count += 1
+
             if stress_book[i] == '1' or stress_book == '2':
                 never_stress_book_12 += 1
             if stress_book[i] == '3' or stress_book == '3':
@@ -902,20 +911,25 @@ def filter_by_frequency_and_stress():
                 never_stress_movie_910 += 1
 
         if frequently_book[i] == 'seldom':
+
+            seldom_count += 1
+
             # print("hallo")
             if stress_book[i] == '1' or stress_book == '2':
                 seldom_stress_book_12 += 1
-                # print("hallo")
+                print("seldom 12")
             if stress_book[i] == '3' or stress_book == '3':
                 seldom_stress_book_34 += 1
-                # print("hallo")
+                print("seldom 34")
             if stress_book[i] == '5' or stress_book == '6':
                 seldom_stress_book_56 += 1
-                # print("hallo")
+                print("seldom 56")
             if stress_book[i] == '7' or stress_book == '8':
                 seldom_stress_book_78 += 1
+                print("seldom 78")
             if stress_book[i] == '9' or stress_book == '10':
                 seldom_stress_book_910 += 1
+                print("seldom 910")
 
             if stress_movie[i] == '1' or stress_movie == '2':
                 seldom_stress_movie_12 += 1
@@ -932,6 +946,9 @@ def filter_by_frequency_and_stress():
                 seldom_stress_movie_910 += 1
 
         if frequently_book[i] == 'sometimes':
+
+            sometimes_count += 1
+
             if stress_book[i] == '1' or stress_book == '2':
                 sometimes_stress_book_12 += 1
             if stress_book[i] == '3' or stress_book == '3':
@@ -955,6 +972,9 @@ def filter_by_frequency_and_stress():
                 sometimes_stress_movie_910 += 1
 
         if frequently_book[i] == 'often':
+
+            often_count += 1
+
             if stress_book[i] == '1' or stress_book == '2':
                 often_stress_book_12 += 1
             if stress_book[i] == '3' or stress_book == '3':
@@ -977,7 +997,10 @@ def filter_by_frequency_and_stress():
             if stress_movie[i] == '9' or stress_movie == '10':
                 often_stress_movie_910 += 1
 
-        if frequently_book[i] == 'very_often':
+        if frequently_book[i] == 'very often':
+
+            very_often_count += 1
+
             if stress_book[i] == '1' or stress_book == '2':
                 very_often_stress_book_12 += 1
             if stress_book[i] == '3' or stress_book == '3':
@@ -999,6 +1022,12 @@ def filter_by_frequency_and_stress():
                 very_often_stress_movie_78 += 1
             if stress_movie[i] == '9' or stress_movie == '10':
                 very_often_stress_movie_910 += 1
+
+    print(never_count)
+    print(seldom_count)
+    print(sometimes_count)
+    print(often_count)
+    print(very_often_count)
 
     print(never_stress_book_12)
     print(never_stress_book_34)
@@ -1256,13 +1285,395 @@ def get_dispersion_frequency_stress():
     return never_stress_book_12, never_stress_book_34, never_stress_book_56, never_stress_book_78, never_stress_book_910, seldom_stress_book_12, seldom_stress_book_34, seldom_stress_book_56, seldom_stress_book_78, seldom_stress_book_910, sometimes_stress_book_12, sometimes_stress_book_34, sometimes_stress_book_56, sometimes_stress_book_78, sometimes_stress_book_910, often_stress_book_12, often_stress_book_34, often_stress_book_56, often_stress_book_78, often_stress_book_910, very_often_stress_book_12, very_often_stress_book_34, very_often_stress_book_56, very_often_stress_book_78, very_often_stress_book_910, never_stress_movie_12, never_stress_movie_34, never_stress_movie_56, never_stress_movie_78, never_stress_movie_910, seldom_stress_movie_12, seldom_stress_movie_34, seldom_stress_movie_56, seldom_stress_movie_78, seldom_stress_movie_910, sometimes_stress_movie_12, sometimes_stress_movie_34, sometimes_stress_movie_56, sometimes_stress_movie_78, sometimes_stress_movie_910, often_stress_movie_12, often_stress_movie_34, often_stress_movie_56, often_stress_movie_78, often_stress_movie_910, very_often_stress_movie_12, very_often_stress_movie_34, very_often_stress_movie_56, very_often_stress_movie_78, very_often_stress_movie_910
 
 
-# def main():
-#     # get_dispersion_age_symptoms()
-#     # get_dispersion_age_snacks()
-#     # get_dispersion_age_motivation()
 
-#     filter_by_frequency_and_stress()
-#     # get_dispersion_frequency_stress()
+def test_function():
 
-# if __name__ == main():
-#     main()
+    data = readCSV('csv_files/edited/survey_complete.csv')
+
+    stress_book = processDataToString(data, "How stressed do you feel after you've read a book on a scale from 1 (not at all stressed) to 10 (very stressed)? (Punkte von 1 bis 10) ")
+    print(stress_book)
+    print()
+    
+    stress_movie = processDataToString(data, "How stressed do you feel after you've watched a movie / a series on a scale from 1 (not at all stressed) to 10 (very stressed)? (Punkte von 1 bis 10) ")
+    print(stress_movie)
+    print()
+
+    frequently_book = processDataToString(data, "How often do you read in a book (meant here is literature you read in your free time like novels etc.)?")
+    print(frequently_book)
+    print()
+
+    print(len(frequently_book))
+    print(len(stress_book))
+    print(len(stress_movie))
+    print()
+
+
+    stress_book_12 = 0
+    stress_book_34 = 0
+    stress_book_56 = 0
+    stress_book_78 = 0
+    stress_book_910 = 0
+    never_book = []
+
+    stress_movie_12 = 0
+    stress_movie_34 = 0
+    stress_movie_56 = 0
+    stress_movie_78 = 0
+    stress_movie_910 = 0
+    never_movie = []
+
+    for i in range(len(frequently_book)):
+        # print(frequently_book[i])
+        # print(stress_book[i])
+        # print(stress_movie[i])
+        # print()
+
+        if frequently_book[i] == 'never':
+            print(stress_book[i])
+            # print(stress_movie[i])
+            if stress_book[i] == '1' or stress_book[i] == '2':
+                stress_book_12 += 1
+            if stress_book[i] == '3' or stress_book[i] == '4':
+                stress_book_34 += 1
+            if stress_book[i] == '5' or stress_book[i] == '6':
+                stress_book_56 += 1
+            if stress_book[i] == '7' or stress_book[i] == '8':
+                stress_book_78 += 1
+            if stress_book[i] == '9' or stress_book[i] == '10':
+                stress_book_910 += 1
+
+            if stress_movie[i] == '1' or stress_movie[i] == '2':
+                stress_movie_12 += 1
+            if stress_movie[i] == '3' or stress_movie[i] == '4':
+                stress_movie_34 += 1
+            if stress_movie[i] == '5' or stress_movie[i] == '6':
+                stress_movie_56 += 1
+            if stress_movie[i] == '7' or stress_movie[i] == '8':
+                stress_movie_78 += 1
+            if stress_movie[i] == '9' or stress_movie[i] == '10':
+                stress_movie_910 += 1
+
+    never_book.append(stress_book_12)
+    never_book.append(stress_book_34)
+    never_book.append(stress_book_56)
+    never_book.append(stress_book_78)
+    never_book.append(stress_book_910)
+
+    never_movie.append(stress_movie_12)
+    never_movie.append(stress_movie_34)
+    never_movie.append(stress_movie_56)
+    never_movie.append(stress_movie_78)
+    never_movie.append(stress_movie_910)
+
+
+    stress_book_12 = 0
+    stress_book_34 = 0
+    stress_book_56 = 0
+    stress_book_78 = 0
+    stress_book_910 = 0
+    seldom_book = []
+
+    stress_movie_12 = 0
+    stress_movie_34 = 0
+    stress_movie_56 = 0
+    stress_movie_78 = 0
+    stress_movie_910 = 0
+    seldom_movie = []
+
+    for i in range(len(frequently_book)):
+        # print(frequently_book[i])
+        # print(stress_book[i])
+        # print(stress_movie[i])
+        # print()
+
+        if frequently_book[i] == 'seldom':
+            print(stress_book[i])
+            # print(stress_movie[i])
+            if stress_book[i] == '1' or stress_book[i] == '2':
+                stress_book_12 += 1
+            if stress_book[i] == '3' or stress_book[i] == '4':
+                stress_book_34 += 1
+            if stress_book[i] == '5' or stress_book[i] == '6':
+                stress_book_56 += 1
+            if stress_book[i] == '7' or stress_book[i] == '8':
+                stress_book_78 += 1
+            if stress_book[i] == '9' or stress_book[i] == '10':
+                stress_book_910 += 1
+
+            if stress_movie[i] == '1' or stress_movie[i] == '2':
+                stress_movie_12 += 1
+            if stress_movie[i] == '3' or stress_movie[i] == '4':
+                stress_movie_34 += 1
+            if stress_movie[i] == '5' or stress_movie[i] == '6':
+                stress_movie_56 += 1
+            if stress_movie[i] == '7' or stress_movie[i] == '8':
+                stress_movie_78 += 1
+            if stress_movie[i] == '9' or stress_movie[i] == '10':
+                stress_movie_910 += 1
+
+    seldom_book.append(stress_book_12)
+    seldom_book.append(stress_book_34)
+    seldom_book.append(stress_book_56)
+    seldom_book.append(stress_book_78)
+    seldom_book.append(stress_book_910)
+
+    seldom_movie.append(stress_movie_12)
+    seldom_movie.append(stress_movie_34)
+    seldom_movie.append(stress_movie_56)
+    seldom_movie.append(stress_movie_78)
+    seldom_movie.append(stress_movie_910)
+
+
+    stress_book_12 = 0
+    stress_book_34 = 0
+    stress_book_56 = 0
+    stress_book_78 = 0
+    stress_book_910 = 0
+    sometimes_book = []
+
+    stress_movie_12 = 0
+    stress_movie_34 = 0
+    stress_movie_56 = 0
+    stress_movie_78 = 0
+    stress_movie_910 = 0
+    sometimes_movie = []
+
+    for i in range(len(frequently_book)):
+        # print(frequently_book[i])
+        # print(stress_book[i])
+        # print(stress_movie[i])
+        # print()
+
+        if frequently_book[i] == 'sometimes':
+            print(stress_book[i])
+            # print(stress_movie[i])
+            if stress_book[i] == '1' or stress_book[i] == '2':
+                stress_book_12 += 1
+            if stress_book[i] == '3' or stress_book[i] == '4':
+                stress_book_34 += 1
+            if stress_book[i] == '5' or stress_book[i] == '6':
+                stress_book_56 += 1
+            if stress_book[i] == '7' or stress_book[i] == '8':
+                stress_book_78 += 1
+            if stress_book[i] == '9' or stress_book[i] == '10':
+                stress_book_910 += 1
+
+            if stress_movie[i] == '1' or stress_movie[i] == '2':
+                stress_movie_12 += 1
+            if stress_movie[i] == '3' or stress_movie[i] == '4':
+                stress_movie_34 += 1
+            if stress_movie[i] == '5' or stress_movie[i] == '6':
+                stress_movie_56 += 1
+            if stress_movie[i] == '7' or stress_movie[i] == '8':
+                stress_movie_78 += 1
+            if stress_movie[i] == '9' or stress_movie[i] == '10':
+                stress_movie_910 += 1
+
+    sometimes_book.append(stress_book_12)
+    sometimes_book.append(stress_book_34)
+    sometimes_book.append(stress_book_56)
+    sometimes_book.append(stress_book_78)
+    sometimes_book.append(stress_book_910)
+
+    sometimes_movie.append(stress_movie_12)
+    sometimes_movie.append(stress_movie_34)
+    sometimes_movie.append(stress_movie_56)
+    sometimes_movie.append(stress_movie_78)
+    sometimes_movie.append(stress_movie_910)
+
+
+    stress_book_12 = 0
+    stress_book_34 = 0
+    stress_book_56 = 0
+    stress_book_78 = 0
+    stress_book_910 = 0
+    often_book = []
+
+    stress_movie_12 = 0
+    stress_movie_34 = 0
+    stress_movie_56 = 0
+    stress_movie_78 = 0
+    stress_movie_910 = 0
+    often_movie = []
+
+    for i in range(len(frequently_book)):
+        # print(frequently_book[i])
+        # print(stress_book[i])
+        # print(stress_movie[i])
+        # print()
+
+        if frequently_book[i] == 'often':
+            print(stress_book[i])
+            # print(stress_movie[i])
+            if stress_book[i] == '1' or stress_book[i] == '2':
+                stress_book_12 += 1
+            if stress_book[i] == '3' or stress_book[i] == '4':
+                stress_book_34 += 1
+            if stress_book[i] == '5' or stress_book[i] == '6':
+                stress_book_56 += 1
+            if stress_book[i] == '7' or stress_book[i] == '8':
+                stress_book_78 += 1
+            if stress_book[i] == '9' or stress_book[i] == '10':
+                stress_book_910 += 1
+
+            if stress_movie[i] == '1' or stress_movie[i] == '2':
+                stress_movie_12 += 1
+            if stress_movie[i] == '3' or stress_movie[i] == '4':
+                stress_movie_34 += 1
+            if stress_movie[i] == '5' or stress_movie[i] == '6':
+                stress_movie_56 += 1
+            if stress_movie[i] == '7' or stress_movie[i] == '8':
+                stress_movie_78 += 1
+            if stress_movie[i] == '9' or stress_movie[i] == '10':
+                stress_movie_910 += 1
+
+    often_book.append(stress_book_12)
+    often_book.append(stress_book_34)
+    often_book.append(stress_book_56)
+    often_book.append(stress_book_78)
+    often_book.append(stress_book_910)
+
+    often_movie.append(stress_movie_12)
+    often_movie.append(stress_movie_34)
+    often_movie.append(stress_movie_56)
+    often_movie.append(stress_movie_78)
+    often_movie.append(stress_movie_910)
+
+
+    stress_book_12 = 0
+    stress_book_34 = 0
+    stress_book_56 = 0
+    stress_book_78 = 0
+    stress_book_910 = 0
+    very_often_book = []
+
+    stress_movie_12 = 0
+    stress_movie_34 = 0
+    stress_movie_56 = 0
+    stress_movie_78 = 0
+    stress_movie_910 = 0
+    very_often_movie = []
+
+    for i in range(len(frequently_book)):
+        # print(frequently_book[i])
+        # print(stress_book[i])
+        # print(stress_movie[i])
+        # print()
+
+        if frequently_book[i] == 'very often':
+            print(stress_book[i])
+            # print(stress_movie[i])
+            if stress_book[i] == '1' or stress_book[i] == '2':
+                stress_book_12 += 1
+            if stress_book[i] == '3' or stress_book[i] == '4':
+                stress_book_34 += 1
+            if stress_book[i] == '5' or stress_book[i] == '6':
+                stress_book_56 += 1
+            if stress_book[i] == '7' or stress_book[i] == '8':
+                stress_book_78 += 1
+            if stress_book[i] == '9' or stress_book[i] == '10':
+                stress_book_910 += 1
+
+            if stress_movie[i] == '1' or stress_movie[i] == '2':
+                stress_movie_12 += 1
+            if stress_movie[i] == '3' or stress_movie[i] == '4':
+                stress_movie_34 += 1
+            if stress_movie[i] == '5' or stress_movie[i] == '6':
+                stress_movie_56 += 1
+            if stress_movie[i] == '7' or stress_movie[i] == '8':
+                stress_movie_78 += 1
+            if stress_movie[i] == '9' or stress_movie[i] == '10':
+                stress_movie_910 += 1
+
+    very_often_book.append(stress_book_12)
+    very_often_book.append(stress_book_34)
+    very_often_book.append(stress_book_56)
+    very_often_book.append(stress_book_78)
+    very_often_book.append(stress_book_910)
+
+    very_often_movie.append(stress_movie_12)
+    very_often_movie.append(stress_movie_34)
+    very_often_movie.append(stress_movie_56)
+    very_often_movie.append(stress_movie_78)
+    very_often_movie.append(stress_movie_910)
+
+
+    print()
+    # print(stress_book_12)
+    # print(stress_book_34)
+    # print(stress_book_56)
+    # print(stress_book_78)
+    # print(stress_book_910)
+    print(never_book)
+    print(never_movie)
+    print(seldom_book)
+    print(seldom_movie)
+    print(sometimes_book)
+    print(sometimes_movie)
+    print(often_book)
+    print(often_movie)
+    print(very_often_book)
+    print(very_often_movie)
+
+    return never_book, never_movie, seldom_book, seldom_movie, sometimes_book, sometimes_movie, often_book, often_movie, very_often_book, very_often_movie
+
+
+def test_function_2():
+
+    never_sum, seldom_sum, sometimes_sum, often_sum, very_often_sum = get_frequency_dispersion()
+    never_book, never_movie, seldom_book, seldom_movie, sometimes_book, sometimes_movie, often_book, often_movie, very_often_book, very_often_movie = test_function()
+
+    if (never_sum != 0):
+        for i in range(len(never_book)):
+            never_book[i] = never_book[i] / never_sum
+            never_movie[i] = never_movie[i] / never_sum
+
+    if (seldom_sum != 0):
+        for i in range(len(seldom_book)):
+            seldom_book[i] = seldom_book[i] / seldom_sum
+            seldom_movie[i] = seldom_movie[i] / seldom_sum
+
+    if (sometimes_sum != 0):
+        for i in range(len(sometimes_book)):
+            sometimes_book[i] = sometimes_book[i] / sometimes_sum
+            sometimes_movie[i] = sometimes_movie[i] / sometimes_sum
+
+    if (often_sum != 0):
+        for i in range(len(often_book)):
+            often_book[i] = often_book[i] / often_sum
+            often_movie[i] = often_movie[i] / often_sum
+
+    if (very_often_sum != 0):
+        for i in range(len(very_often_book)):
+            very_often_book[i] = very_often_book[i] / very_often_sum
+            very_often_movie[i] = very_often_movie[i] / very_often_sum
+
+    print()
+    print(never_book)
+    print(never_movie)
+    print(seldom_book)
+    print(seldom_movie)
+    print(sometimes_book)
+    print(sometimes_movie)
+    print(often_book)
+    print(often_movie)
+    print(very_often_book)
+    print(very_often_movie)
+
+    return never_book, never_movie, seldom_book, seldom_movie, sometimes_book, sometimes_movie, often_book, often_movie, very_often_book, very_often_movie
+
+
+
+def main():
+    # get_dispersion_age_symptoms()
+    # get_dispersion_age_snacks()
+    # get_dispersion_age_motivation()
+
+    # filter_by_frequency_and_stress()
+    # get_dispersion_frequency_stress()
+
+    # test_function()
+    test_function_2()
+
+if __name__ == main():
+    main()
