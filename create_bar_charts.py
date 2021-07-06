@@ -569,6 +569,93 @@ def create_age_motivation_stacked_bar_chart():
     plt.show()
 
 
+def create_frequency_stress_stacked_bar_chart():
+
+    never_stress_book_12, never_stress_book_34, never_stress_book_56, never_stress_book_78, never_stress_book_910, seldom_stress_book_12, seldom_stress_book_34, seldom_stress_book_56, seldom_stress_book_78, seldom_stress_book_910, sometimes_stress_book_12, sometimes_stress_book_34, sometimes_stress_book_56, sometimes_stress_book_78, sometimes_stress_book_910, often_stress_book_12, often_stress_book_34, often_stress_book_56, often_stress_book_78, often_stress_book_910, very_often_stress_book_12, very_often_stress_book_34, very_often_stress_book_56, very_often_stress_book_78, very_often_stress_book_910, never_stress_movie_12, never_stress_movie_34, never_stress_movie_56, never_stress_movie_78, never_stress_movie_910, seldom_stress_movie_12, seldom_stress_movie_34, seldom_stress_movie_56, seldom_stress_movie_78, seldom_stress_movie_910, sometimes_stress_movie_12, sometimes_stress_movie_34, sometimes_stress_movie_56, sometimes_stress_movie_78, sometimes_stress_movie_910, often_stress_movie_12, often_stress_movie_34, often_stress_movie_56, often_stress_movie_78, often_stress_movie_910, very_often_stress_movie_12, very_often_stress_movie_34, very_often_stress_movie_56, very_often_stress_movie_78, very_often_stress_movie_910 = get_dispersion_frequency_stress()
+
+    labels = ['never', 'seldom', 'sometimes', 'often', 'very often']
+
+    # BOOK
+    never = [never_stress_book_12, seldom_stress_book_12, sometimes_stress_book_12, often_stress_book_12, very_often_stress_book_12]
+    # print(never)
+    seldom = [never_stress_book_34, seldom_stress_book_34, sometimes_stress_book_34, often_stress_book_34, very_often_stress_book_34]
+    # print(seldom)
+    sometimes = [never_stress_book_56, seldom_stress_book_56, sometimes_stress_book_56, often_stress_book_56, very_often_stress_book_56]
+    # print(sometimes)
+    often = [never_stress_book_78, seldom_stress_book_78, sometimes_stress_book_78, often_stress_book_78, very_often_stress_book_78]
+    # print(often)
+    very_often = [never_stress_book_910, seldom_stress_book_910, sometimes_stress_book_910, often_stress_book_910, very_often_stress_book_910]
+    # print(very_often)
+
+    width = 0.7
+
+    fig, ax = plt.subplots()
+
+    ax.bar(labels, never, width, label='never', color='#00283b')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='#00525d')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='#007c50')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='#779d18')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='#ffa600')
+
+    ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('reading frequency')
+    
+    never_patch = mpatches.Patch(color='#00283b', label='1, 2')
+    seldom_patch = mpatches.Patch(color='#00525d', label='3, 4')
+    sometimes_patch = mpatches.Patch(color='#007c50', label='5, 6')
+    often_patch = mpatches.Patch(color='#779d18', label='7, 8')
+    very_often_patch = mpatches.Patch(color='#ffa600', label='9, 10')
+
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
+    ax.legend(handles=[never_patch, seldom_patch, sometimes_patch, often_patch, very_often_patch], loc='upper center', bbox_to_anchor=(0.5, -0.15), fancybox=True, shadow=True, ncol=5)
+
+    plt.savefig('diagrams/bar_charts/frequency_stress_book.png')
+
+    plt.show()
+
+    # MOVIE
+    never = [never_stress_movie_12, seldom_stress_movie_12, sometimes_stress_movie_12, often_stress_movie_12, very_often_stress_movie_12]
+    # print(never)
+    seldom = [never_stress_movie_34, seldom_stress_movie_34, sometimes_stress_movie_34, often_stress_movie_34, very_often_stress_movie_34]
+    # print(seldom)
+    sometimes = [never_stress_movie_56, seldom_stress_movie_56, sometimes_stress_movie_56, often_stress_movie_56, very_often_stress_movie_56]
+    # print(sometimes)
+    often = [never_stress_movie_78, seldom_stress_movie_78, sometimes_stress_movie_78, often_stress_movie_78, very_often_stress_movie_78]
+    # print(often)
+    very_often = [never_stress_movie_910, seldom_stress_movie_910, sometimes_stress_movie_910, often_stress_movie_910, very_often_stress_movie_910]
+    # print(very_often)
+
+    width = 0.7
+
+    fig, ax = plt.subplots()
+
+    ax.bar(labels, never, width, label='never', color='#00283b')
+    ax.bar(labels, seldom, width, bottom=never, label='seldom', color='#00525d')
+    ax.bar(labels, sometimes, width, bottom=np.array(never)+np.array(seldom), label='sometimes', color='#007c50')
+    ax.bar(labels, often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes), label='often', color='#779d18')
+    ax.bar(labels, very_often, width, bottom=np.array(never)+np.array(seldom)+np.array(sometimes)+np.array(often), label='very often', color='#ffa600')
+
+    ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('reading frequency')
+    
+    never_patch = mpatches.Patch(color='#00283b', label='1, 2')
+    seldom_patch = mpatches.Patch(color='#00525d', label='3, 4')
+    sometimes_patch = mpatches.Patch(color='#007c50', label='5, 6')
+    often_patch = mpatches.Patch(color='#779d18', label='7, 8')
+    very_often_patch = mpatches.Patch(color='#ffa600', label='9, 10')
+
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
+    ax.legend(handles=[never_patch, seldom_patch, sometimes_patch, often_patch, very_often_patch], loc='upper center', bbox_to_anchor=(0.5, -0.15), fancybox=True, shadow=True, ncol=5)
+
+    plt.savefig('diagrams/bar_charts/frequency_stress_movie.png')
+
+    plt.show()
+
+
 
 def main():
     data = readCSV('csv_files/edited/survey_complete.csv')
@@ -587,7 +674,9 @@ def main():
 
     # create_age_symptoms_stacked_bar_chart()
     # create_age_snacks_stacked_bar_chart()
-    create_age_motivation_stacked_bar_chart()
+    # create_age_motivation_stacked_bar_chart()
+
+    create_frequency_stress_stacked_bar_chart()
 
 
 if __name__ == main():

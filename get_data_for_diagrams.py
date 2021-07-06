@@ -813,6 +813,10 @@ def filter_by_frequency_and_stress():
 
     frequently_book = processDataToString(data, "How often do you read in a book (meant here is literature you read in your free time like novels etc.)?")
 
+    print(len(frequently_book))
+    print(len(stress_book))
+    print(len(stress_movie))
+
     never_stress_book_12 = 0
     never_stress_book_34 = 0
     never_stress_book_56 = 0
@@ -843,6 +847,36 @@ def filter_by_frequency_and_stress():
     very_often_stress_book_78 = 0
     very_often_stress_book_910 = 0
 
+    never_stress_movie_12 = 0
+    never_stress_movie_34 = 0
+    never_stress_movie_56 = 0
+    never_stress_movie_78 = 0
+    never_stress_movie_910 = 0
+
+    seldom_stress_movie_12 = 0
+    seldom_stress_movie_34 = 0
+    seldom_stress_movie_56 = 0
+    seldom_stress_movie_78 = 0
+    seldom_stress_movie_910 = 0
+
+    sometimes_stress_movie_12 = 0
+    sometimes_stress_movie_34 = 0
+    sometimes_stress_movie_56 = 0
+    sometimes_stress_movie_78 = 0
+    sometimes_stress_movie_910 = 0
+
+    often_stress_movie_12 = 0
+    often_stress_movie_34 = 0
+    often_stress_movie_56 = 0
+    often_stress_movie_78 = 0
+    often_stress_movie_910 = 0
+
+    very_often_stress_movie_12 = 0
+    very_often_stress_movie_34 = 0
+    very_often_stress_movie_56 = 0
+    very_often_stress_movie_78 = 0
+    very_often_stress_movie_910 = 0
+
     for i in range(len(frequently_book)):
         if frequently_book[i] == 'never':
             if stress_book[i] == '1' or stress_book == '2':
@@ -855,6 +889,17 @@ def filter_by_frequency_and_stress():
                 never_stress_book_78 += 1
             if stress_book[i] == '9' or stress_book == '10':
                 never_stress_book_910 += 1
+
+            if stress_movie[i] == '1' or stress_movie == '2':
+                never_stress_movie_12 += 1
+            if stress_movie[i] == '3' or stress_movie == '3':
+                never_stress_movie_34 += 1
+            if stress_movie[i] == '5' or stress_movie == '6':
+                never_stress_movie_56 += 1
+            if stress_movie[i] == '7' or stress_movie == '8':
+                never_stress_movie_78 += 1
+            if stress_movie[i] == '9' or stress_movie == '10':
+                never_stress_movie_910 += 1
 
         if frequently_book[i] == 'seldom':
             # print("hallo")
@@ -872,6 +917,20 @@ def filter_by_frequency_and_stress():
             if stress_book[i] == '9' or stress_book == '10':
                 seldom_stress_book_910 += 1
 
+            if stress_movie[i] == '1' or stress_movie == '2':
+                seldom_stress_movie_12 += 1
+                # print("hallo")
+            if stress_movie[i] == '3' or stress_movie == '3':
+                seldom_stress_movie_34 += 1
+                # print("hallo")
+            if stress_movie[i] == '5' or stress_movie == '6':
+                seldom_stress_movie_56 += 1
+                # print("hallo")
+            if stress_movie[i] == '7' or stress_movie == '8':
+                seldom_stress_movie_78 += 1
+            if stress_movie[i] == '9' or stress_movie == '10':
+                seldom_stress_movie_910 += 1
+
         if frequently_book[i] == 'sometimes':
             if stress_book[i] == '1' or stress_book == '2':
                 sometimes_stress_book_12 += 1
@@ -883,6 +942,17 @@ def filter_by_frequency_and_stress():
                 sometimes_stress_book_78 += 1
             if stress_book[i] == '9' or stress_book == '10':
                 sometimes_stress_book_910 += 1
+
+            if stress_movie[i] == '1' or stress_movie == '2':
+                sometimes_stress_movie_12 += 1
+            if stress_movie[i] == '3' or stress_movie == '3':
+                sometimes_stress_movie_34 += 1
+            if stress_movie[i] == '5' or stress_movie == '6':
+                sometimes_stress_movie_56 += 1
+            if stress_movie[i] == '7' or stress_movie == '8':
+                sometimes_stress_movie_78 += 1
+            if stress_movie[i] == '9' or stress_movie == '10':
+                sometimes_stress_movie_910 += 1
 
         if frequently_book[i] == 'often':
             if stress_book[i] == '1' or stress_book == '2':
@@ -896,6 +966,17 @@ def filter_by_frequency_and_stress():
             if stress_book[i] == '9' or stress_book == '10':
                 often_stress_book_910 += 1
 
+            if stress_movie[i] == '1' or stress_movie == '2':
+                often_stress_movie_12 += 1
+            if stress_movie[i] == '3' or stress_movie == '3':
+                often_stress_movie_34 += 1
+            if stress_movie[i] == '5' or stress_movie == '6':
+                often_stress_movie_56 += 1
+            if stress_movie[i] == '7' or stress_movie == '8':
+                often_stress_movie_78 += 1
+            if stress_movie[i] == '9' or stress_movie == '10':
+                often_stress_movie_910 += 1
+
         if frequently_book[i] == 'very_often':
             if stress_book[i] == '1' or stress_book == '2':
                 very_often_stress_book_12 += 1
@@ -908,9 +989,88 @@ def filter_by_frequency_and_stress():
             if stress_book[i] == '9' or stress_book == '10':
                 very_often_stress_book_910 += 1
 
-        # print(often_stress_book_12)
+            if stress_movie[i] == '1' or stress_movie == '2':
+                very_often_stress_movie_12 += 1
+            if stress_movie[i] == '3' or stress_movie == '3':
+                very_often_stress_movie_34 += 1
+            if stress_movie[i] == '5' or stress_movie == '6':
+                very_often_stress_movie_56 += 1
+            if stress_movie[i] == '7' or stress_movie == '8':
+                very_often_stress_movie_78 += 1
+            if stress_movie[i] == '9' or stress_movie == '10':
+                very_often_stress_movie_910 += 1
 
-    return never_stress_book_12, never_stress_book_34, never_stress_book_56, never_stress_book_78, never_stress_book_910, seldom_stress_book_12, seldom_stress_book_34, seldom_stress_book_56, seldom_stress_book_78, seldom_stress_book_910, sometimes_stress_book_12, sometimes_stress_book_34, sometimes_stress_book_56, sometimes_stress_book_78, sometimes_stress_book_910, often_stress_book_12, often_stress_book_34, often_stress_book_56, often_stress_book_78, often_stress_book_910, very_often_stress_book_12, very_often_stress_book_34, very_often_stress_book_56, very_often_stress_book_78, very_often_stress_book_910
+    print(never_stress_book_12)
+    print(never_stress_book_34)
+    print(never_stress_book_56)
+    print(never_stress_book_78)
+    print(never_stress_book_910)
+    print()
+
+    print(never_stress_movie_12)
+    print(never_stress_movie_34)
+    print(never_stress_movie_56)
+    print(never_stress_movie_78)
+    print(never_stress_movie_910)
+    print()
+
+    print(seldom_stress_book_12)
+    print(seldom_stress_book_34)
+    print(seldom_stress_book_56)
+    print(seldom_stress_book_78)
+    print(seldom_stress_book_910)
+    print()
+
+    print(seldom_stress_movie_12)
+    print(seldom_stress_movie_34)
+    print(seldom_stress_movie_56)
+    print(seldom_stress_movie_78)
+    print(seldom_stress_movie_910)
+    print()
+
+    print(sometimes_stress_book_12)
+    print(sometimes_stress_book_34)
+    print(sometimes_stress_book_56)
+    print(sometimes_stress_book_78)
+    print(sometimes_stress_book_910)
+    print()
+
+    print(sometimes_stress_movie_12)
+    print(sometimes_stress_movie_34)
+    print(sometimes_stress_movie_56)
+    print(sometimes_stress_movie_78)
+    print(sometimes_stress_movie_910)
+    print()
+
+    print(often_stress_book_12)
+    print(often_stress_book_34)
+    print(often_stress_book_56)
+    print(often_stress_book_78)
+    print(often_stress_book_910)
+    print()
+
+    print(often_stress_movie_12)
+    print(often_stress_movie_34)
+    print(often_stress_movie_56)
+    print(often_stress_movie_78)
+    print(often_stress_movie_910)
+    print()
+
+    print(very_often_stress_book_12)
+    print(very_often_stress_book_34)
+    print(very_often_stress_book_56)
+    print(very_often_stress_book_78)
+    print(very_often_stress_book_910)
+    print()
+
+    print(very_often_stress_movie_12)
+    print(very_often_stress_movie_34)
+    print(very_often_stress_movie_56)
+    print(very_often_stress_movie_78)
+    print(very_often_stress_movie_910)
+    print()
+
+    return never_stress_book_12, never_stress_book_34, never_stress_book_56, never_stress_book_78, never_stress_book_910, seldom_stress_book_12, seldom_stress_book_34, seldom_stress_book_56, seldom_stress_book_78, seldom_stress_book_910, sometimes_stress_book_12, sometimes_stress_book_34, sometimes_stress_book_56, sometimes_stress_book_78, sometimes_stress_book_910, often_stress_book_12, often_stress_book_34, often_stress_book_56, often_stress_book_78, often_stress_book_910, very_often_stress_book_12, very_often_stress_book_34, very_often_stress_book_56, very_often_stress_book_78, very_often_stress_book_910, never_stress_movie_12, never_stress_movie_34, never_stress_movie_56, never_stress_movie_78, never_stress_movie_910, seldom_stress_movie_12, seldom_stress_movie_34, seldom_stress_movie_56, seldom_stress_movie_78, seldom_stress_movie_910, sometimes_stress_movie_12, sometimes_stress_movie_34, sometimes_stress_movie_56, sometimes_stress_movie_78, sometimes_stress_movie_910, often_stress_movie_12, often_stress_movie_34, often_stress_movie_56, often_stress_movie_78, often_stress_movie_910, very_often_stress_movie_12, very_often_stress_movie_34, very_often_stress_movie_56, very_often_stress_movie_78, very_often_stress_movie_910
 
 
 def get_frequency_dispersion():
@@ -944,7 +1104,7 @@ def get_frequency_dispersion():
 
 def get_dispersion_frequency_stress():
 
-    never_stress_book_12, never_stress_book_34, never_stress_book_56, never_stress_book_78, never_stress_book_910, seldom_stress_book_12, seldom_stress_book_34, seldom_stress_book_56, seldom_stress_book_78, seldom_stress_book_910, sometimes_stress_book_12, sometimes_stress_book_34, sometimes_stress_book_56, sometimes_stress_book_78, sometimes_stress_book_910, often_stress_book_12, often_stress_book_34, often_stress_book_56, often_stress_book_78, often_stress_book_910, very_often_stress_book_12, very_often_stress_book_34, very_often_stress_book_56, very_often_stress_book_78, very_often_stress_book_910 = filter_by_frequency_and_stress()
+    never_stress_book_12, never_stress_book_34, never_stress_book_56, never_stress_book_78, never_stress_book_910, seldom_stress_book_12, seldom_stress_book_34, seldom_stress_book_56, seldom_stress_book_78, seldom_stress_book_910, sometimes_stress_book_12, sometimes_stress_book_34, sometimes_stress_book_56, sometimes_stress_book_78, sometimes_stress_book_910, often_stress_book_12, often_stress_book_34, often_stress_book_56, often_stress_book_78, often_stress_book_910, very_often_stress_book_12, very_often_stress_book_34, very_often_stress_book_56, very_often_stress_book_78, very_often_stress_book_910, never_stress_movie_12, never_stress_movie_34, never_stress_movie_56, never_stress_movie_78, never_stress_movie_910, seldom_stress_movie_12, seldom_stress_movie_34, seldom_stress_movie_56, seldom_stress_movie_78, seldom_stress_movie_910, sometimes_stress_movie_12, sometimes_stress_movie_34, sometimes_stress_movie_56, sometimes_stress_movie_78, sometimes_stress_movie_910, often_stress_movie_12, often_stress_movie_34, often_stress_movie_56, often_stress_movie_78, often_stress_movie_910, very_often_stress_movie_12, very_often_stress_movie_34, very_often_stress_movie_56, very_often_stress_movie_78, very_often_stress_movie_910 = filter_by_frequency_and_stress()
     never_sum, seldom_sum, sometimes_sum, often_sum, very_often_sum = get_frequency_dispersion()
 
     print(never_sum)
@@ -961,11 +1121,24 @@ def get_dispersion_frequency_stress():
         never_stress_book_78 = never_stress_book_78 / never_sum
         never_stress_book_910 = never_stress_book_910 / never_sum
 
+        never_stress_movie_12 = never_stress_movie_12 / never_sum
+        never_stress_movie_34 = never_stress_movie_34 / never_sum
+        never_stress_movie_56 = never_stress_movie_56 / never_sum
+        never_stress_movie_78 = never_stress_movie_78 / never_sum
+        never_stress_movie_910 = never_stress_movie_910 / never_sum
+
     print(never_stress_book_12)
     print(never_stress_book_34)
     print(never_stress_book_56)
     print(never_stress_book_78)
     print(never_stress_book_910)
+    print()
+
+    print(never_stress_movie_12)
+    print(never_stress_movie_34)
+    print(never_stress_movie_56)
+    print(never_stress_movie_78)
+    print(never_stress_movie_910)
     print()
 
     if (seldom_sum != 0):
@@ -976,11 +1149,24 @@ def get_dispersion_frequency_stress():
         seldom_stress_book_78 = seldom_stress_book_78 / seldom_sum
         seldom_stress_book_910 = seldom_stress_book_910 / seldom_sum
 
+        seldom_stress_movie_12 = seldom_stress_movie_12 / seldom_sum
+        seldom_stress_movie_34 = seldom_stress_movie_34 / seldom_sum
+        seldom_stress_movie_56 = seldom_stress_movie_56 / seldom_sum
+        seldom_stress_movie_78 = seldom_stress_movie_78 / seldom_sum
+        seldom_stress_movie_910 = seldom_stress_movie_910 / seldom_sum
+
     print(seldom_stress_book_12)
     print(seldom_stress_book_34)
     print(seldom_stress_book_56)
     print(seldom_stress_book_78)
     print(seldom_stress_book_910)
+    print()
+
+    print(seldom_stress_movie_12)
+    print(seldom_stress_movie_34)
+    print(seldom_stress_movie_56)
+    print(seldom_stress_movie_78)
+    print(seldom_stress_movie_910)
     print()
 
     if (sometimes_sum != 0):
@@ -991,11 +1177,24 @@ def get_dispersion_frequency_stress():
         sometimes_stress_book_78 = sometimes_stress_book_78 / sometimes_sum
         sometimes_stress_book_910 = sometimes_stress_book_910 / sometimes_sum
 
+        sometimes_stress_movie_12 = sometimes_stress_movie_12 / sometimes_sum
+        sometimes_stress_movie_34 = sometimes_stress_movie_34 / sometimes_sum
+        sometimes_stress_movie_56 = sometimes_stress_movie_56 / sometimes_sum
+        sometimes_stress_movie_78 = sometimes_stress_movie_78 / sometimes_sum
+        sometimes_stress_movie_910 = sometimes_stress_movie_910 / sometimes_sum
+
     print(sometimes_stress_book_12)
     print(sometimes_stress_book_34)
     print(sometimes_stress_book_56)
     print(sometimes_stress_book_78)
     print(sometimes_stress_book_910)
+    print()
+
+    print(sometimes_stress_movie_12)
+    print(sometimes_stress_movie_34)
+    print(sometimes_stress_movie_56)
+    print(sometimes_stress_movie_78)
+    print(sometimes_stress_movie_910)
     print()
 
     if (often_sum != 0):
@@ -1006,11 +1205,24 @@ def get_dispersion_frequency_stress():
         often_stress_book_78 = often_stress_book_78 / often_sum
         often_stress_book_910 = often_stress_book_910 / often_sum
 
+        often_stress_movie_12 = often_stress_movie_12 / often_sum
+        often_stress_movie_34 = often_stress_movie_34 / often_sum
+        often_stress_movie_56 = often_stress_movie_56 / often_sum
+        often_stress_movie_78 = often_stress_movie_78 / often_sum
+        often_stress_movie_910 = often_stress_movie_910 / often_sum
+
     print(often_stress_book_12)
     print(often_stress_book_34)
     print(often_stress_book_56)
     print(often_stress_book_78)
     print(often_stress_book_910)
+    print()
+
+    print(often_stress_movie_12)
+    print(often_stress_movie_34)
+    print(often_stress_movie_56)
+    print(often_stress_movie_78)
+    print(often_stress_movie_910)
     print()
 
     if (very_often_sum != 0):
@@ -1021,6 +1233,12 @@ def get_dispersion_frequency_stress():
         very_often_stress_book_78 = very_often_stress_book_78 / very_often_sum
         very_often_stress_book_910 = very_often_stress_book_910 / very_often_sum
 
+        very_often_stress_movie_12 = very_often_stress_movie_12 / very_often_sum
+        very_often_stress_movie_34 = very_often_stress_movie_34 / very_often_sum
+        very_often_stress_movie_56 = very_often_stress_movie_56 / very_often_sum
+        very_often_stress_movie_78 = very_often_stress_movie_78 / very_often_sum
+        very_often_stress_movie_910 = very_often_stress_movie_910 / very_often_sum
+
     print(very_often_stress_book_12)
     print(very_often_stress_book_34)
     print(very_often_stress_book_56)
@@ -1028,12 +1246,23 @@ def get_dispersion_frequency_stress():
     print(very_often_stress_book_910)
     print()
 
+    print(very_often_stress_movie_12)
+    print(very_often_stress_movie_34)
+    print(very_often_stress_movie_56)
+    print(very_often_stress_movie_78)
+    print(very_often_stress_movie_910)
+    print()
 
-def main():
-    # get_dispersion_age_symptoms()
-    # get_dispersion_age_snacks()
-    # get_dispersion_age_motivation()
-    get_dispersion_frequency_stress()
+    return never_stress_book_12, never_stress_book_34, never_stress_book_56, never_stress_book_78, never_stress_book_910, seldom_stress_book_12, seldom_stress_book_34, seldom_stress_book_56, seldom_stress_book_78, seldom_stress_book_910, sometimes_stress_book_12, sometimes_stress_book_34, sometimes_stress_book_56, sometimes_stress_book_78, sometimes_stress_book_910, often_stress_book_12, often_stress_book_34, often_stress_book_56, often_stress_book_78, often_stress_book_910, very_often_stress_book_12, very_often_stress_book_34, very_often_stress_book_56, very_often_stress_book_78, very_often_stress_book_910, never_stress_movie_12, never_stress_movie_34, never_stress_movie_56, never_stress_movie_78, never_stress_movie_910, seldom_stress_movie_12, seldom_stress_movie_34, seldom_stress_movie_56, seldom_stress_movie_78, seldom_stress_movie_910, sometimes_stress_movie_12, sometimes_stress_movie_34, sometimes_stress_movie_56, sometimes_stress_movie_78, sometimes_stress_movie_910, often_stress_movie_12, often_stress_movie_34, often_stress_movie_56, often_stress_movie_78, often_stress_movie_910, very_often_stress_movie_12, very_often_stress_movie_34, very_often_stress_movie_56, very_often_stress_movie_78, very_often_stress_movie_910
 
-if __name__ == main():
-    main()
+
+# def main():
+#     # get_dispersion_age_symptoms()
+#     # get_dispersion_age_snacks()
+#     # get_dispersion_age_motivation()
+
+#     filter_by_frequency_and_stress()
+#     # get_dispersion_frequency_stress()
+
+# if __name__ == main():
+#     main()
