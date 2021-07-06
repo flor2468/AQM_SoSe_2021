@@ -10,6 +10,9 @@ def create_histogram(which_histogram):
     motivation_book = processDataToString(data, "How motivated are you to become physically active after you've read a book on a scale of 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
     motivation_movie = processDataToString(data, "How motivated are you to become physically active after you've watched a movie / a series on a scale from 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
 
+    stress_book = processDataToString(data, "How stressed do you feel after you've read a book on a scale from 1 (not at all stressed) to 10 (very stressed)? (Punkte von 1 bis 10) ")
+    stress_movie = processDataToString(data, "How stressed do you feel after you've watched a movie / a series on a scale from 1 (not at all stressed) to 10 (very stressed)? (Punkte von 1 bis 10) ")
+
     if (which_histogram == 'age'):
 
         age = processDataToString(data, "How old are you?")
@@ -223,14 +226,82 @@ def create_histogram(which_histogram):
 
         plt.show()
 
+    if (which_histogram == 'stress'):
+
+        bins = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+        # BOOK
+        hist, bins = np.histogram(stress_book, bins = bins) 
+        print(hist)
+        print(bins)
+        # fig = plt.figure()
+        ax = plt.figure().gca()
+        plt.hist(stress_book, bins = bins, rwidth=0.9, color='#007c50', align='left') 
+        # plt.xlim([0, 65])
+        # plt.xticks(np.arange(9,61,1))
+        ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
+        ax.set_yticks([0, 5, 10, 15, 20])
+        ax.set_ylabel('amount')
+        ax.set_xlabel('stress *')
+
+        plt.savefig('diagrams/histograms/stress_book_histogram.png')
+
+        plt.show()
+
+        # MOVIE
+        hist, bins = np.histogram(stress_movie, bins = bins) 
+        print(hist)
+        print(bins)
+        # fig = plt.figure()
+        ax = plt.figure().gca()
+        plt.hist(stress_movie, bins = bins, rwidth=0.9, color='#007c50', align='left') 
+        # plt.xlim([0, 65])
+        # plt.xticks(np.arange(9,61,1))
+        ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
+        ax.set_yticks([0, 5, 10, 15, 20])
+        ax.set_ylabel('amount')
+        ax.set_xlabel('stress *')
+
+        plt.savefig('diagrams/histograms/stress_movie_histogram.png')
+
+        plt.show()
+
+    if (which_histogram == 'frequence book'):
+
+        bins = [1, 2, 3, 4, 5, 6]
+
+        # BOOK
+        hist, bins = np.histogram(frequently_book, bins = bins) 
+        print(hist)
+        print(bins)
+        # fig = plt.figure()
+        ax = plt.figure().gca()
+        plt.hist(frequently_book, bins = bins, rwidth=0.9, color='#007c50', align='left') 
+        # plt.xlim([0, 65])
+        # plt.xticks(np.arange(9,61,1))
+        ax.set_xticks([1, 2, 3, 4, 5])
+        ax.set_xticklabels(['never\n(1)', 'seldom\n(2)', 'sometimes\n(3)', 'often\n(4)', 'very often\n(5)'])
+        ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
+        ax.set_ylabel('amount')
+        ax.set_xlabel('frequency *')
+        box = ax.get_position()
+        ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
+
+        plt.savefig('diagrams/histograms/frequence_book_histogram.png')
+
+        plt.show()
 
 
 def main():
-    create_histogram('age')
-    create_histogram('time')
-    create_histogram('symptoms')
-    create_histogram('snacks')
-    create_histogram('motivation')
+    # create_histogram('age')
+    # create_histogram('time')
+    # create_histogram('symptoms')
+    # create_histogram('snacks')
+    # create_histogram('motivation')
+    # create_histogram('stress')
+    create_histogram('frequence book')
 
 
 if __name__ ==  main():
