@@ -796,10 +796,244 @@ def get_dispersion_age_motivation():
     return younger_motivation_book_never, younger_motivation_book_seldom, younger_motivation_book_sometimes, younger_motivation_book_often, younger_motivation_book_very_often, older_motivation_book_never, older_motivation_book_seldom, older_motivation_book_sometimes, older_motivation_book_often, older_motivation_book_very_often, younger_motivation_movie_never, younger_motivation_movie_seldom, younger_motivation_movie_sometimes, younger_motivation_movie_often, younger_motivation_movie_very_often, older_motivation_movie_never, older_motivation_movie_seldom, older_motivation_movie_sometimes, older_motivation_movie_often, older_motivation_movie_very_often
 
 
-# def main():
-#     # get_dispersion_age_symptoms()
-#     # get_dispersion_age_snacks()
-#     get_dispersion_age_motivation()
+def filter_by_frequency_and_stress():
 
-# if __name__ == main():
-#     main()
+    data = readCSV('csv_files/edited/survey_complete.csv')
+    # grouped_ages = group_ages()
+    # symptoms_book, symptoms_movie, snacks_book, snacks_movie, frequently_book = convert_string_scales_to_values()
+    # younger_symptoms_book, younger_symptoms_movie, older_symptoms_book, older_symptoms_movie, younger_stress_book, younger_stress_movie, older_stress_book, older_stress_movie, younger_motivation_book, younger_motivation_movie, older_motivation_book, older_motivation_movie = filter_by_age_and_physical_aspects()
+    
+    stress_book = processDataToString(data, "How stressed do you feel after you've read a book on a scale from 1 (not at all stressed) to 10 (very stressed)? (Punkte von 1 bis 10) ")
+    
+    print(stress_book)
+    
+    stress_movie = processDataToString(data, "How stressed do you feel after you've watched a movie / a series on a scale from 1 (not at all stressed) to 10 (very stressed)? (Punkte von 1 bis 10) ")
+
+    print(stress_movie)
+
+    frequently_book = processDataToString(data, "How often do you read in a book (meant here is literature you read in your free time like novels etc.)?")
+
+    never_stress_book_12 = 0
+    never_stress_book_34 = 0
+    never_stress_book_56 = 0
+    never_stress_book_78 = 0
+    never_stress_book_910 = 0
+
+    seldom_stress_book_12 = 0
+    seldom_stress_book_34 = 0
+    seldom_stress_book_56 = 0
+    seldom_stress_book_78 = 0
+    seldom_stress_book_910 = 0
+
+    sometimes_stress_book_12 = 0
+    sometimes_stress_book_34 = 0
+    sometimes_stress_book_56 = 0
+    sometimes_stress_book_78 = 0
+    sometimes_stress_book_910 = 0
+
+    often_stress_book_12 = 0
+    often_stress_book_34 = 0
+    often_stress_book_56 = 0
+    often_stress_book_78 = 0
+    often_stress_book_910 = 0
+
+    very_often_stress_book_12 = 0
+    very_often_stress_book_34 = 0
+    very_often_stress_book_56 = 0
+    very_often_stress_book_78 = 0
+    very_often_stress_book_910 = 0
+
+    for i in range(len(frequently_book)):
+        if frequently_book[i] == 'never':
+            if stress_book[i] == '1' or stress_book == '2':
+                never_stress_book_12 += 1
+            if stress_book[i] == '3' or stress_book == '3':
+                never_stress_book_34 += 1
+            if stress_book[i] == '5' or stress_book == '6':
+                never_stress_book_56 += 1
+            if stress_book[i] == '7' or stress_book == '8':
+                never_stress_book_78 += 1
+            if stress_book[i] == '9' or stress_book == '10':
+                never_stress_book_910 += 1
+
+        if frequently_book[i] == 'seldom':
+            # print("hallo")
+            if stress_book[i] == '1' or stress_book == '2':
+                seldom_stress_book_12 += 1
+                # print("hallo")
+            if stress_book[i] == '3' or stress_book == '3':
+                seldom_stress_book_34 += 1
+                # print("hallo")
+            if stress_book[i] == '5' or stress_book == '6':
+                seldom_stress_book_56 += 1
+                # print("hallo")
+            if stress_book[i] == '7' or stress_book == '8':
+                seldom_stress_book_78 += 1
+            if stress_book[i] == '9' or stress_book == '10':
+                seldom_stress_book_910 += 1
+
+        if frequently_book[i] == 'sometimes':
+            if stress_book[i] == '1' or stress_book == '2':
+                sometimes_stress_book_12 += 1
+            if stress_book[i] == '3' or stress_book == '3':
+                sometimes_stress_book_34 += 1
+            if stress_book[i] == '5' or stress_book == '6':
+                sometimes_stress_book_56 += 1
+            if stress_book[i] == '7' or stress_book == '8':
+                sometimes_stress_book_78 += 1
+            if stress_book[i] == '9' or stress_book == '10':
+                sometimes_stress_book_910 += 1
+
+        if frequently_book[i] == 'often':
+            if stress_book[i] == '1' or stress_book == '2':
+                often_stress_book_12 += 1
+            if stress_book[i] == '3' or stress_book == '3':
+                often_stress_book_34 += 1
+            if stress_book[i] == '5' or stress_book == '6':
+                often_stress_book_56 += 1
+            if stress_book[i] == '7' or stress_book == '8':
+                often_stress_book_78 += 1
+            if stress_book[i] == '9' or stress_book == '10':
+                often_stress_book_910 += 1
+
+        if frequently_book[i] == 'very_often':
+            if stress_book[i] == '1' or stress_book == '2':
+                very_often_stress_book_12 += 1
+            if stress_book[i] == '3' or stress_book == '3':
+                very_often_stress_book_34 += 1
+            if stress_book[i] == '5' or stress_book == '6':
+                very_often_stress_book_56 += 1
+            if stress_book[i] == '7' or stress_book == '8':
+                very_often_stress_book_78 += 1
+            if stress_book[i] == '9' or stress_book == '10':
+                very_often_stress_book_910 += 1
+
+        # print(often_stress_book_12)
+
+    return never_stress_book_12, never_stress_book_34, never_stress_book_56, never_stress_book_78, never_stress_book_910, seldom_stress_book_12, seldom_stress_book_34, seldom_stress_book_56, seldom_stress_book_78, seldom_stress_book_910, sometimes_stress_book_12, sometimes_stress_book_34, sometimes_stress_book_56, sometimes_stress_book_78, sometimes_stress_book_910, often_stress_book_12, often_stress_book_34, often_stress_book_56, often_stress_book_78, often_stress_book_910, very_often_stress_book_12, very_often_stress_book_34, very_often_stress_book_56, very_often_stress_book_78, very_often_stress_book_910
+
+
+def get_frequency_dispersion():
+
+    data = readCSV('csv_files/edited/survey_complete.csv')
+    # symptoms_book, symptoms_movie, snacks_book, snacks_movie, frequently_book = convert_string_scales_to_values()
+    frequently_book = processDataToString(data, "How often do you read in a book (meant here is literature you read in your free time like novels etc.)?")
+    
+    print(frequently_book)
+    
+    never_sum = 0
+    seldom_sum = 0
+    sometimes_sum = 0
+    often_sum = 0
+    very_often_sum = 0
+
+    for i in range(len(frequently_book)):
+        if (frequently_book[i] == 'never'):
+            never_sum += 1
+        if (frequently_book[i] == 'seldom'):
+            seldom_sum += 1
+        if (frequently_book[i] == 'sometimes'):
+            sometimes_sum += 1
+        if (frequently_book[i] == 'often'):
+            often_sum += 1
+        if (frequently_book[i] == 'very often'):
+            very_often_sum += 1
+
+    return never_sum, seldom_sum, sometimes_sum, often_sum, very_often_sum
+
+
+def get_dispersion_frequency_stress():
+
+    never_stress_book_12, never_stress_book_34, never_stress_book_56, never_stress_book_78, never_stress_book_910, seldom_stress_book_12, seldom_stress_book_34, seldom_stress_book_56, seldom_stress_book_78, seldom_stress_book_910, sometimes_stress_book_12, sometimes_stress_book_34, sometimes_stress_book_56, sometimes_stress_book_78, sometimes_stress_book_910, often_stress_book_12, often_stress_book_34, often_stress_book_56, often_stress_book_78, often_stress_book_910, very_often_stress_book_12, very_often_stress_book_34, very_often_stress_book_56, very_often_stress_book_78, very_often_stress_book_910 = filter_by_frequency_and_stress()
+    never_sum, seldom_sum, sometimes_sum, often_sum, very_often_sum = get_frequency_dispersion()
+
+    print(never_sum)
+    print(seldom_sum)
+    print(sometimes_sum)
+    print(often_sum)
+    print(very_often_sum)
+    print()
+
+    if (never_sum != 0):
+        never_stress_book_12 = never_stress_book_12 / never_sum
+        never_stress_book_34 = never_stress_book_34 / never_sum
+        never_stress_book_56 = never_stress_book_56 / never_sum
+        never_stress_book_78 = never_stress_book_78 / never_sum
+        never_stress_book_910 = never_stress_book_910 / never_sum
+
+    print(never_stress_book_12)
+    print(never_stress_book_34)
+    print(never_stress_book_56)
+    print(never_stress_book_78)
+    print(never_stress_book_910)
+    print()
+
+    if (seldom_sum != 0):
+
+        seldom_stress_book_12 = seldom_stress_book_12 / seldom_sum
+        seldom_stress_book_34 = seldom_stress_book_34 / seldom_sum
+        seldom_stress_book_56 = seldom_stress_book_56 / seldom_sum
+        seldom_stress_book_78 = seldom_stress_book_78 / seldom_sum
+        seldom_stress_book_910 = seldom_stress_book_910 / seldom_sum
+
+    print(seldom_stress_book_12)
+    print(seldom_stress_book_34)
+    print(seldom_stress_book_56)
+    print(seldom_stress_book_78)
+    print(seldom_stress_book_910)
+    print()
+
+    if (sometimes_sum != 0):
+
+        sometimes_stress_book_12 = sometimes_stress_book_12 / sometimes_sum
+        sometimes_stress_book_34 = sometimes_stress_book_34 / sometimes_sum
+        sometimes_stress_book_56 = sometimes_stress_book_56 / sometimes_sum
+        sometimes_stress_book_78 = sometimes_stress_book_78 / sometimes_sum
+        sometimes_stress_book_910 = sometimes_stress_book_910 / sometimes_sum
+
+    print(sometimes_stress_book_12)
+    print(sometimes_stress_book_34)
+    print(sometimes_stress_book_56)
+    print(sometimes_stress_book_78)
+    print(sometimes_stress_book_910)
+    print()
+
+    if (often_sum != 0):
+
+        often_stress_book_12 = often_stress_book_12 / often_sum
+        often_stress_book_34 = often_stress_book_34 / often_sum
+        often_stress_book_56 = often_stress_book_56 / often_sum
+        often_stress_book_78 = often_stress_book_78 / often_sum
+        often_stress_book_910 = often_stress_book_910 / often_sum
+
+    print(often_stress_book_12)
+    print(often_stress_book_34)
+    print(often_stress_book_56)
+    print(often_stress_book_78)
+    print(often_stress_book_910)
+    print()
+
+    if (very_often_sum != 0):
+
+        very_often_stress_book_12 = very_often_stress_book_12 / very_often_sum
+        very_often_stress_book_34 = very_often_stress_book_34 / very_often_sum
+        very_often_stress_book_56 = very_often_stress_book_56 / very_often_sum
+        very_often_stress_book_78 = very_often_stress_book_78 / very_often_sum
+        very_often_stress_book_910 = very_often_stress_book_910 / very_often_sum
+
+    print(very_often_stress_book_12)
+    print(very_often_stress_book_34)
+    print(very_often_stress_book_56)
+    print(very_often_stress_book_78)
+    print(very_often_stress_book_910)
+    print()
+
+
+def main():
+    # get_dispersion_age_symptoms()
+    # get_dispersion_age_snacks()
+    # get_dispersion_age_motivation()
+    get_dispersion_frequency_stress()
+
+if __name__ == main():
+    main()
