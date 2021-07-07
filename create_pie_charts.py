@@ -63,7 +63,7 @@ def create_basic_diagrams(which_diagram):
         sizes = [never, seldom, sometimes, often, very_often]
 
         fig, ax1 = plt.subplots()
-        _, _, chart = ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=0, colors=['#00283b', '#00525d', '#007c50', '#779d18', '#ffa600'])
+        _, _, chart = ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=0, colors=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'])
         
         # change color of percentage text in the chart
         # source: https://stackoverflow.com/questions/27898830/python-how-to-change-autopct-text-color-to-be-white-in-a-pie-chart
@@ -126,8 +126,8 @@ def create_basic_diagrams(which_diagram):
 def main():
 
     # create_basic_diagrams('gender')
-    # create_basic_diagrams('book frequency')
-    create_basic_diagrams('age')
+    create_basic_diagrams('book frequency')
+    # create_basic_diagrams('age')
 
 
 if __name__ == main():

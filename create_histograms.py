@@ -278,7 +278,7 @@ def create_histogram(which_histogram):
         print(bins)
         # fig = plt.figure()
         ax = plt.figure().gca()
-        plt.hist(frequently_book, bins = bins, rwidth=0.9, color='#007c50', align='left') 
+        plt.hist(frequently_book, bins = bins, rwidth=0.9, color='#955196', align='left') 
         # plt.xlim([0, 65])
         # plt.xticks(np.arange(9,61,1))
         ax.set_xticks([1, 2, 3, 4, 5])
