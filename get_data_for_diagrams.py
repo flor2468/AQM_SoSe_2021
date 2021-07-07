@@ -1663,6 +1663,28 @@ def test_function_2():
     return never_book, never_movie, seldom_book, seldom_movie, sometimes_book, sometimes_movie, often_book, often_movie, very_often_book, very_often_movie
 
 
+def get_dispersion_health():
+
+    data = readCSV('csv_files/edited/survey_complete.csv')
+    health = processDataToString(data, "What do you think is healthier?")
+
+    A = 0
+    B = 0
+    C = 0
+    D = 0
+
+    for i in range(len(health)):
+        if health[i] == "Reading a book is healthier.":
+            A += 1
+        if health[i] == "Watching a movie/ a series is healthier":
+            B += 1
+        if health[i] == "Both is equally healthy.":
+            C += 1
+        if health[i] == "Both is equally unhealthy.":
+            D += 1
+
+    return A, B, C, D
+
 
 def main():
     # get_dispersion_age_symptoms()

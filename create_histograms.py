@@ -272,6 +272,9 @@ def create_histogram(which_histogram):
 
         bins = [1, 2, 3, 4, 5, 6]
 
+        print("frequently_book")
+        print(frequently_book)
+
         # BOOK
         hist, bins = np.histogram(frequently_book, bins = bins) 
         print(hist)
@@ -293,6 +296,37 @@ def create_histogram(which_histogram):
 
         plt.show()
 
+    if (which_histogram == 'health'):
+
+        bins = [1, 2, 3, 4, 5]
+
+        A, B, C, D = get_dispersion_health()
+        print(A, B, C, D)
+
+        # hist, bins = np.histogram(health, bins = bins) 
+        # print(hist)
+        # print(bins)
+        # # fig = plt.figure()
+        ax = plt.figure().gca()
+        # plt.hist(health, bins = bins, rwidth=0.9, color='#955196', align='left') 
+        # # plt.xlim([0, 65])
+        # # plt.xticks(np.arange(9,61,1))
+        # ax.set_xticks([1, 2, 3, 4])
+        # ax.bar()
+        labels = ['A', 'B', 'C', 'D']
+        answers = [A, B, C, D]
+        ax.bar(labels, answers, color='#955196')
+        ax.set_xticklabels(['A', 'B', 'C', 'D'])
+        ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50])
+        ax.set_ylabel('amount')
+        ax.set_xlabel('type of statement')
+        box = ax.get_position()
+        ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
+
+        plt.savefig('diagrams/histograms/health_histogram.png')
+
+        plt.show()
+
 
 def main():
     # create_histogram('age')
@@ -300,8 +334,9 @@ def main():
     # create_histogram('symptoms')
     # create_histogram('snacks')
     # create_histogram('motivation')
-    create_histogram('stress')
+    # create_histogram('stress')
     # create_histogram('frequence book')
+    create_histogram('health')
 
 
 if __name__ ==  main():
