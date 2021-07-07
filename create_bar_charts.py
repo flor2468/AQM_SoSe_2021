@@ -679,7 +679,7 @@ def new_frequency_stress_stacked_bar_chart():
     ax.bar(labels, scale_78, width, bottom=np.array(scale_12)+np.array(scale_34)+np.array(scale_56), label='7, 8', color='#779d18')
     ax.bar(labels, scale_910, width, bottom=np.array(scale_12)+np.array(scale_34)+np.array(scale_56)+np.array(scale_78), label='9, 10', color='#ffa600')
 
-    # ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
+    ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
     ax.set_ylabel('percentage')
     ax.set_xlabel('reading frequency')
     
@@ -714,7 +714,7 @@ def new_frequency_stress_stacked_bar_chart():
     ax.bar(labels, scale_78, width, bottom=np.array(scale_12)+np.array(scale_34)+np.array(scale_56), label='7, 8', color='#779d18')
     ax.bar(labels, scale_910, width, bottom=np.array(scale_12)+np.array(scale_34)+np.array(scale_56)+np.array(scale_78), label='9, 10', color='#ffa600')
 
-    # ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
+    ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
     ax.set_ylabel('percentage')
     ax.set_xlabel('reading frequency')
     
