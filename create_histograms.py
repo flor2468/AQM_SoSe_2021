@@ -316,7 +316,7 @@ def create_histogram(which_histogram):
         labels = ['A', 'B', 'C', 'D']
         answers = [A, B, C, D]
         ax.bar(labels, answers, color='#955196')
-        ax.set_xticklabels(['A', 'B', 'C', 'D'])
+        ax.set_xticklabels(['I', 'II', 'III', 'IV'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50])
         ax.set_ylabel('amount')
         ax.set_xlabel('type of statement')
