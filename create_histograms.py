@@ -384,7 +384,7 @@ def create_histogram(which_histogram):
         # plt.xticks(np.arange(9,61,1))
         ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
-        ax.set_yticks([0, 5, 10, 15, 20])
+        ax.set_yticks([0, 5, 10, 15, 20, 25, 30])
         ax.set_ylabel('amount')
         ax.set_xlabel('pleasure')
 
@@ -401,8 +401,8 @@ def main():
     # create_histogram('motivation')
     # create_histogram('stress')
     # create_histogram('frequence book')
-    create_histogram('health')
-    # create_histogram('pleasure')
+    # create_histogram('health')
+    create_histogram('pleasure')
 
 
 if __name__ ==  main():
