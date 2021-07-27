@@ -19,16 +19,16 @@ def create_simple_bar_chart(array_1, array_2, topic):
     if (topic == 'symptoms' or topic == 'snacks'):
 
         ax.set_yticks([1, 2, 3, 4, 5])
-        ax.set_yticklabels(['never\n(1)', 'seldom\n(2)', 'some\ntimes\n(3)', 'often\n(4)', 'very\noften\n(5)'])
+        ax.set_yticklabels(['never', 'seldom', 'some\ntimes', 'often', 'very\noften'])
 
         if (topic == 'symptoms'):
 
-            ax.set_ylabel('frequency *')
+            ax.set_ylabel('frequency')
             # plt.text(-0.5, -1.0, '*  of having symptoms like \na headache, burning eyes etc.')
 
         if (topic == 'snacks'):
 
-            ax.set_ylabel('frequency *')
+            ax.set_ylabel('frequency')
             # plt.text(-0.5, -1.0, '*  of eating snacks during the activity')
 
         box = ax.get_position()
@@ -38,7 +38,7 @@ def create_simple_bar_chart(array_1, array_2, topic):
     else:
         ax.set_yticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
-        ax.set_ylabel('motivation *')
+        ax.set_ylabel('motivation')
         # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
 
         box = ax.get_position()
@@ -105,10 +105,11 @@ def create_mean_bar_chart_with_multiple_bars():
     # plt.yticks(Pos-(1/6), ["", "Level 2", "Level 3", "Level 4", "Level 5"])
     ax.bar(Pos + 0.00, data[0], color='#00283b', width=0.25)
     ax.bar(Pos + 0.25, data[1], color='#ffa600', width=0.25)
-    plt.xticks(Pos+0.12, ["age groups A-C", "age groups D-F"])
+    plt.xticks(Pos+0.12, ["A-C", "D-F"])
+    ax.set_xlabel('age groups')
     ax.set_yticks([1, 2, 3, 4, 5])
-    ax.set_yticklabels(['never\n(1)', 'seldom\n(2)', 'some\ntimes\n(3)', 'often\n(4)', 'very\noften\n(5)'])
-    ax.set_ylabel('frequency *')
+    ax.set_yticklabels(['never', 'seldom', 'some\ntimes', 'often', 'very\noften'])
+    ax.set_ylabel('frequency')
     # plt.text(-0.5, -1.0, '*  of having symptoms like \na headache, burning eyes etc.')
 
     book_patch = mpatches.Patch(color='#00283b', label='reading a book')
@@ -132,10 +133,11 @@ def create_mean_bar_chart_with_multiple_bars():
     # plt.yticks(Pos-(1/6), ["", "Level 2", "Level 3", "Level 4", "Level 5"])
     ax.bar(Pos + 0.00, data[0], color='#00283b', width=0.25)
     ax.bar(Pos + 0.25, data[1], color='#ffa600', width=0.25)
-    plt.xticks(Pos+0.12, ["age groups A-C", "age groups D-F"])
+    plt.xticks(Pos+0.12, ["A-C", "D-F"])
+    ax.set_xlabel('age groups')
     ax.set_yticks([1, 2, 3, 4, 5])
-    ax.set_yticklabels(['never\n(1)', 'seldom\n(2)', 'some\ntimes\n(3)', 'often\n(4)', 'very\noften\n(5)'])
-    ax.set_ylabel('frequency *')
+    ax.set_yticklabels(['never', 'seldom', 'some\ntimes', 'often', 'very\noften'])
+    ax.set_ylabel('frequency')
     # plt.text(-0.5, -1.0, '*  of eating snacks during the activity')
 
     book_patch = mpatches.Patch(color='#00283b', label='reading a book')
@@ -159,9 +161,10 @@ def create_mean_bar_chart_with_multiple_bars():
     # plt.yticks(Pos-(1/6), ["", "Level 2", "Level 3", "Level 4", "Level 5"])
     ax.bar(Pos + 0.00, data[0], color='#00283b', width=0.25)
     ax.bar(Pos + 0.25, data[1], color='#ffa600', width=0.25)
-    plt.xticks(Pos+0.12, ["age groups A-C", "age groups D-F"])
+    plt.xticks(Pos+0.12, ["A-C", "D-F"])
+    ax.set_xlabel('age groups')
     ax.set_yticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    ax.set_ylabel('motivation *')
+    ax.set_ylabel('motivation')
     # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
 
     book_patch = mpatches.Patch(color='#00283b', label='reading a book')
@@ -201,8 +204,8 @@ def create_age_time_bar_chart():
     ax.set_xlabel('part of the day')
     # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
 
-    younger_patch = mpatches.Patch(color='#004a5a', label='age groups A-C')
-    older_patch = mpatches.Patch(color='#90a201', label='age groups D-F')
+    younger_patch = mpatches.Patch(color='#004a5a', label='A-C')
+    older_patch = mpatches.Patch(color='#90a201', label='D-F')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height])
@@ -231,8 +234,8 @@ def create_age_time_bar_chart():
     ax.set_xlabel('part of the day')
     # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
 
-    younger_patch = mpatches.Patch(color='#004a5a', label='age groups A-C')
-    older_patch = mpatches.Patch(color='#90a201', label='age groups D-F')
+    younger_patch = mpatches.Patch(color='#004a5a', label='A-C')
+    older_patch = mpatches.Patch(color='#90a201', label='D-F')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height])
@@ -262,11 +265,11 @@ def create_age_symptoms_bar_chart():
     # ax.xaxis.set_ticks_position('top')
     ax.set_yticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
     ax.set_ylabel('percentage')
-    ax.set_xlabel('frequency *')
+    ax.set_xlabel('frequency')
     # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
 
-    younger_patch = mpatches.Patch(color='#004a5a', label='age groups A-C')
-    older_patch = mpatches.Patch(color='#90a201', label='age groups D-F')
+    younger_patch = mpatches.Patch(color='#004a5a', label='A-C')
+    older_patch = mpatches.Patch(color='#90a201', label='D-F')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -291,11 +294,11 @@ def create_age_symptoms_bar_chart():
     # ax.xaxis.set_ticks_position('top')
     ax.set_yticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
     ax.set_ylabel('percentage')
-    ax.set_xlabel('frequency *')
+    ax.set_xlabel('frequency')
     # plt.text(-0.5, -1.7, '* of getting physically active after the activity')
 
-    younger_patch = mpatches.Patch(color='#004a5a', label='age groups A-C')
-    older_patch = mpatches.Patch(color='#90a201', label='age groups D-F')
+    younger_patch = mpatches.Patch(color='#004a5a', label='A-C')
+    older_patch = mpatches.Patch(color='#90a201', label='D-F')
 
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
@@ -310,7 +313,7 @@ def create_age_symptoms_stacked_bar_chart():
 
     younger_symptoms_book_never, younger_symptoms_book_seldom, younger_symptoms_book_sometimes, younger_symptoms_book_often, younger_symptoms_book_very_often, older_symptoms_book_never, older_symptoms_book_seldom, older_symptoms_book_sometimes, older_symptoms_book_often, older_symptoms_book_very_often, younger_symptoms_movie_never, younger_symptoms_movie_seldom, younger_symptoms_movie_sometimes, younger_symptoms_movie_often, younger_symptoms_movie_very_often, older_symptoms_movie_never, older_symptoms_movie_seldom, older_symptoms_movie_sometimes, older_symptoms_movie_often, older_symptoms_movie_very_often = get_dispersion_age_symptoms()
 
-    labels = ['age groups A-C', 'age groups D-F']
+    labels = ['A-C', 'D-F']
 
     # BOOK
     never = [younger_symptoms_book_never, older_symptoms_book_never]
@@ -398,7 +401,7 @@ def create_age_snacks_stacked_bar_chart():
 
     younger_snacks_book_never, younger_snacks_book_seldom, younger_snacks_book_sometimes, younger_snacks_book_often, younger_snacks_book_very_often, older_snacks_book_never, older_snacks_book_seldom, older_snacks_book_sometimes, older_snacks_book_often, older_snacks_book_very_often, younger_snacks_movie_never, younger_snacks_movie_seldom, younger_snacks_movie_sometimes, younger_snacks_movie_often, younger_snacks_movie_very_often, older_snacks_movie_never, older_snacks_movie_seldom, older_snacks_movie_sometimes, older_snacks_movie_often, older_snacks_movie_very_often = get_dispersion_age_snacks()
 
-    labels = ['age groups A-C', 'age groups D-F']
+    labels = ['A-C', 'D-F']
 
     # BOOK
     never = [younger_snacks_book_never, older_snacks_book_never]
@@ -486,7 +489,7 @@ def create_age_motivation_stacked_bar_chart():
 
     younger_motivation_book_never, younger_motivation_book_seldom, younger_motivation_book_sometimes, younger_motivation_book_often, younger_motivation_book_very_often, older_motivation_book_never, older_motivation_book_seldom, older_motivation_book_sometimes, older_motivation_book_often, older_motivation_book_very_often, younger_motivation_movie_never, younger_motivation_movie_seldom, younger_motivation_movie_sometimes, younger_motivation_movie_often, younger_motivation_movie_very_often, older_motivation_movie_never, older_motivation_movie_seldom, older_motivation_movie_sometimes, older_motivation_movie_often, older_motivation_movie_very_often = get_dispersion_age_motivation()
 
-    labels = ['age groups A-C', 'age groups D-F']
+    labels = ['A-C', 'D-F']
 
     # BOOK
     never = [younger_motivation_book_never, older_motivation_book_never]
@@ -733,6 +736,83 @@ def new_frequency_stress_stacked_bar_chart():
     plt.show()
 
 
+def new_frequency_pleasure_stacked_bar_chart():
+
+    never_book, never_movie, seldom_book, seldom_movie, sometimes_book, sometimes_movie, often_book, often_movie, very_often_book, very_often_movie = test_function_2_pleasure()
+
+    labels = ['never', 'seldom', 'sometimes', 'often', 'very often']
+
+    # BOOK
+    scale_12 = [never_book[0], seldom_book[0], sometimes_book[0], often_book[0], very_often_book[0]]
+    scale_34 = [never_book[1], seldom_book[1], sometimes_book[1], often_book[1], very_often_book[1]]
+    scale_56 = [never_book[2], seldom_book[2], sometimes_book[2], often_book[2], very_often_book[2]]
+    scale_78 = [never_book[3], seldom_book[3], sometimes_book[3], often_book[3], very_often_book[3]]
+    scale_910 = [never_book[4], seldom_book[4], sometimes_book[4], often_book[4], very_often_book[4]]
+
+    width = 0.7
+
+    fig, ax = plt.subplots()
+
+    ax.bar(labels, scale_12, width, label='1, 2', color='#00283b')
+    ax.bar(labels, scale_34, width, bottom=scale_12, label='3, 4', color='#00525d')
+    ax.bar(labels, scale_56, width, bottom=np.array(scale_12)+np.array(scale_34), label='5, 6', color='#007c50')
+    ax.bar(labels, scale_78, width, bottom=np.array(scale_12)+np.array(scale_34)+np.array(scale_56), label='7, 8', color='#779d18')
+    ax.bar(labels, scale_910, width, bottom=np.array(scale_12)+np.array(scale_34)+np.array(scale_56)+np.array(scale_78), label='9, 10', color='#ffa600')
+
+    ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('reading frequency')
+    
+    first_patch = mpatches.Patch(color='#00283b', label='1, 2')
+    second_patch = mpatches.Patch(color='#00525d', label='3, 4')
+    third_patch = mpatches.Patch(color='#007c50', label='5, 6')
+    forth_patch = mpatches.Patch(color='#779d18', label='7, 8')
+    fifth_patch = mpatches.Patch(color='#ffa600', label='9, 10')
+
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
+    ax.legend(handles=[first_patch, second_patch, third_patch, forth_patch, fifth_patch], loc='upper center', bbox_to_anchor=(0.5, -0.15), fancybox=True, shadow=True, ncol=5)
+
+    plt.savefig('diagrams/bar_charts/frequency_pleasure_book_2.png')
+
+    plt.show()
+
+    # MOVIE
+    scale_12 = [never_movie[0], seldom_movie[0], sometimes_movie[0], often_movie[0], very_often_movie[0]]
+    scale_34 = [never_movie[1], seldom_movie[1], sometimes_movie[1], often_movie[1], very_often_movie[1]]
+    scale_56 = [never_movie[2], seldom_movie[2], sometimes_movie[2], often_movie[2], very_often_movie[2]]
+    scale_78 = [never_movie[3], seldom_movie[3], sometimes_movie[3], often_movie[3], very_often_movie[3]]
+    scale_910 = [never_movie[4], seldom_movie[4], sometimes_movie[4], often_movie[4], very_often_movie[4]]
+
+    width = 0.7
+
+    fig, ax = plt.subplots()
+
+    ax.bar(labels, scale_12, width, label='1, 2', color='#00283b')
+    ax.bar(labels, scale_34, width, bottom=scale_12, label='3, 4', color='#00525d')
+    ax.bar(labels, scale_56, width, bottom=np.array(scale_12)+np.array(scale_34), label='5, 6', color='#007c50')
+    ax.bar(labels, scale_78, width, bottom=np.array(scale_12)+np.array(scale_34)+np.array(scale_56), label='7, 8', color='#779d18')
+    ax.bar(labels, scale_910, width, bottom=np.array(scale_12)+np.array(scale_34)+np.array(scale_56)+np.array(scale_78), label='9, 10', color='#ffa600')
+
+    ax.set_yticklabels(['0%', '20%', '40%', '60%', '80%', '100%'])
+    ax.set_ylabel('percentage')
+    ax.set_xlabel('reading frequency')
+    
+    first_patch = mpatches.Patch(color='#00283b', label='1, 2')
+    second_patch = mpatches.Patch(color='#00525d', label='3, 4')
+    third_patch = mpatches.Patch(color='#007c50', label='5, 6')
+    forth_patch = mpatches.Patch(color='#779d18', label='7, 8')
+    fifth_patch = mpatches.Patch(color='#ffa600', label='9, 10')
+
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0 + box.height * 0.1, box.width, box.height * 0.9])
+    ax.legend(handles=[first_patch, second_patch, third_patch, forth_patch, fifth_patch], loc='upper center', bbox_to_anchor=(0.5, -0.15), fancybox=True, shadow=True, ncol=5)
+
+    plt.savefig('diagrams/bar_charts/frequency_pleasure_movie_2.png')
+
+    plt.show()
+
+
 def main():
     data = readCSV('csv_files/edited/survey_complete.csv')
     motivation_book = processDataToString(data, "How motivated are you to become physically active after you've read a book on a scale of 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
@@ -754,7 +834,9 @@ def main():
 
     # create_frequency_stress_stacked_bar_chart()
 
-    new_frequency_stress_stacked_bar_chart()
+    # new_frequency_stress_stacked_bar_chart()
+
+    new_frequency_pleasure_stacked_bar_chart()
 
 
 if __name__ == main():
