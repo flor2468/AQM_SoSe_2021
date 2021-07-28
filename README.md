@@ -1,1 +1,3 @@
-# AQM_SoSe_2021
+# Bauhaus.Module
+# Applied Quantitative Methods
+# Summer Term 2021
