@@ -16,6 +16,9 @@ def create_histogram(which_histogram):
     pleasure_book = processDataToString(data, "How much do you like reading on a scale from 1 (not at all) to 10 (very much)? (Punkte von 1 bis 10) ")
     pleasure_movie = processDataToString(data, "How much do you like watching movies / series on a scale from 1 (not at all) to 10 (very much)? (Punkte von 1 bis 10) ")
 
+    relax_book = processDataToString(data, "How relaxed do you feel after you've read a book on a scale from 1 (not at all relaxed) to 10 (very relaxed)? (Punkte von 1 bis 10) ")
+    relax_movie = processDataToString(data, "How relaxed do you feel after you've watched a movie / a series on a scale from 1 (not at all relaxed) to 10 (very relaxed)? (Punkte von 1 bis 10) ")
+
     for i in range(len(motivation_book)):
         motivation_book[i] = int(motivation_book[i])
 
@@ -34,7 +37,11 @@ def create_histogram(which_histogram):
     for i in range(len(pleasure_movie)):
         pleasure_movie[i] = int(pleasure_movie[i])
 
-    # print(pleasure_book)
+    for i in range(len(relax_book)):
+        relax_book[i] = int(relax_book[i])
+
+    for i in range(len(relax_movie)):
+        relax_movie[i] = int(relax_movie[i])
 
     if (which_histogram == 'age'):
 
@@ -392,6 +399,48 @@ def create_histogram(which_histogram):
 
         plt.show()
 
+    if (which_histogram == 'relax'):
+
+        bins = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+        # BOOK
+        hist, bins = np.histogram(relax_book, bins = bins) 
+        print(hist)
+        print(bins)
+        # fig = plt.figure()
+        ax = plt.figure().gca()
+        plt.hist(relax_book, bins = bins, rwidth=0.9, color='#007c50', align='left') 
+        # plt.xlim([0, 65])
+        # plt.xticks(np.arange(9,61,1))
+        ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
+        ax.set_yticks([0, 5, 10, 15, 20])
+        ax.set_ylabel('amount')
+        ax.set_xlabel('relaxation')
+
+        plt.savefig('diagrams/histograms/relax_book_histogram.png')
+
+        plt.show()
+
+        # MOVIE
+        hist, bins = np.histogram(relax_movie, bins = bins) 
+        print(hist)
+        print(bins)
+        # fig = plt.figure()
+        ax = plt.figure().gca()
+        plt.hist(relax_movie, bins = bins, rwidth=0.9, color='#007c50', align='left') 
+        # plt.xlim([0, 65])
+        # plt.xticks(np.arange(9,61,1))
+        ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
+        ax.set_yticks([0, 5, 10, 15, 20])
+        ax.set_ylabel('amount')
+        ax.set_xlabel('relaxation')
+
+        plt.savefig('diagrams/histograms/relax_movie_histogram.png')
+
+        plt.show()
+
 
 def main():
     # create_histogram('age')
@@ -402,7 +451,8 @@ def main():
     # create_histogram('stress')
     # create_histogram('frequence book')
     # create_histogram('health')
-    create_histogram('pleasure')
+    # create_histogram('pleasure')
+    create_histogram('relax')
 
 
 if __name__ ==  main():
