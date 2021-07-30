@@ -4,70 +4,13 @@ import matplotlib.pyplot as plt
 
 def create_basic_diagrams():
 
-    # GENDER PIE CHART
-
-    # data = readCSV('csv_files/edited/survey_complete.csv')
-    # gender = processDataToString(data, 'To which gender do you assign to?')
-    # male = gender.count('male')
-    # print(male)
-    # female = gender.count('female')
-    # print(female)
-    # diverse = gender.count('diverse')
-    # print(diverse)
-    # no = gender.count('no statement')
-    # print(no)
-    # print(male + female + diverse + no)
-
-    # # source: https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_features.html
-
-    # labels = 'male', 'female', 'diverse', 'no statement'
-    # sizes = [male, female, diverse, no]
-
-    # fig, ax1 = plt.subplots()
-    # ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=0, colors=['lightgreen', 'magenta', 'gold', 'mediumturquoise'])
-    # ax1.axis('equal')
-
-    # plt.savefig('diagrams/pie_charts/gender_pie_chart.png')
-    # plt.show()
-
-    # BOOK FREQUENCY PIE CHART
-    
-    # data = readCSV('csv_files/edited/survey_complete.csv')
-    # frequently_book = processDataToString(data, "How often do you read in a book (meant here is literature you read in your free time like novels etc.)?")
-    # never = frequently_book.count('never')
-    # print(never)
-    # seldom = frequently_book.count('seldom')
-    # print(seldom)
-    # sometimes = frequently_book.count('sometimes')
-    # print(sometimes)
-    # often = frequently_book.count('often')
-    # print(often)
-    # very_often = frequently_book.count('very often')
-    # print(very_often)
-    # print(never + seldom + sometimes + often + very_often)
-
-    # # source: https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_features.html
-
-    # labels = 'never', 'seldom', 'sometimes', 'often', 'very often'
-    # sizes = [never, seldom, sometimes, often, very_often]
-
-    # fig, ax1 = plt.subplots()
-    # ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=0, colors=['lightgreen', 'magenta', 'gold', 'mediumturquoise', 'orange'])
-    # ax1.axis('equal')
-
-    # plt.savefig('diagrams/pie_charts/frequently_book_pie_chart.png')
-    # plt.show()
+    # source: https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_features.html
 
     #  AGE PIE CHART
 
     data = readCSV('csv_files/edited/survey_complete.csv')
     age = processDataToString(data, "How old are you?")
     grouped_ages = group_ages()
-            
-    # print(len(age))
-    # print(age)
-    # print(len(grouped_ages))
-    # print(grouped_ages)
 
     A = grouped_ages.count('< 18')
     B = grouped_ages.count('18 - 25')
@@ -76,11 +19,6 @@ def create_basic_diagrams():
     E = grouped_ages.count('41 - 50')
     F = grouped_ages.count('51 - 60')
     G = grouped_ages.count('> 60')
-
-    # print(A, B, C, D, E, F, G)
-    # print(A + B + C + D + E + F + G)
-
-    # source: https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_features.html
 
     # labels = '< 18', '18 - 25', '26 - 30', '31 - 40', '41 - 50', '51 - 60'
     # sizes = [A, B, C, D, E, F]
@@ -137,13 +75,6 @@ def convert_string_scales_to_values():
     snacks_book = processDataToString(data, "How often do you eat snacks during reading?")
     snacks_movie = processDataToString(data, "How often do you eat snacks during watching a movie / a series?")
     frequently_book = processDataToString(data, "How often do you read in a book (meant here is literature you read in your free time like novels etc.)?")
-    
-    # print(motivation_book)
-    # print(motivation_movie)
-    # print(symptoms_book)
-    # print(symptoms_movie)
-    # print(snacks_book)
-    # print(snacks_movie)
 
     for i in range(len(symptoms_book)):
         if symptoms_book[i] == 'never':
@@ -157,8 +88,6 @@ def convert_string_scales_to_values():
         if symptoms_book[i] == 'very often':
             symptoms_book[i] = 5
 
-    # print(symptoms_book)
-
     for i in range(len(symptoms_movie)):
         if symptoms_movie[i] == 'never':
             symptoms_movie[i] = 1
@@ -170,8 +99,6 @@ def convert_string_scales_to_values():
             symptoms_movie[i] = 4
         if symptoms_movie[i] == 'very often':
             symptoms_movie[i] = 5
-
-    # print(symptoms_movie)
 
     for i in range(len(snacks_book)):
         if snacks_book[i] == 'never':
@@ -185,8 +112,6 @@ def convert_string_scales_to_values():
         if snacks_book[i] == 'very often':
             snacks_book[i] = 5
 
-    # print(snacks_book)
-
     for i in range(len(snacks_movie)):
         if snacks_movie[i] == 'never':
             snacks_movie[i] = 1
@@ -199,8 +124,6 @@ def convert_string_scales_to_values():
         if snacks_movie[i] == 'very often':
             snacks_movie[i] = 5
 
-    # print(snacks_movie)
-
     for i in range(len(frequently_book)):
         if frequently_book[i] == 'never':
             frequently_book[i] = 1
@@ -212,8 +135,6 @@ def convert_string_scales_to_values():
             frequently_book[i] = 4
         if frequently_book[i] == 'very often':
             frequently_book[i] = 5
-
-    # print(frequently_book)
 
     return symptoms_book, symptoms_movie, snacks_book, snacks_movie, frequently_book
 
@@ -240,49 +161,47 @@ def filter_by_age_and_physical_aspects():
     grouped_ages = group_ages()
     symptoms_book, symptoms_movie, snacks_book, snacks_movie, frequently_book = convert_string_scales_to_values()
     data = readCSV('csv_files/edited/survey_complete.csv')
+    
     motivation_book = processDataToString(data, "How motivated are you to become physically active after you've read a book on a scale of 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
     motivation_movie = processDataToString(data, "How motivated are you to become physically active after you've watched a movie / a series on a scale from 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
+    
     younger_symptoms_book = []
     younger_symptoms_movie = []
+
     older_symptoms_book = []
     older_symptoms_movie = []
+
     younger_snacks_book = []
     younger_snacks_movie = []
+
     older_snacks_book = []
     older_snacks_movie = []
+
     younger_motivation_book = []
     younger_motivation_movie = []
+
     older_motivation_book = []
     older_motivation_movie = []
 
     for i in range(len(grouped_ages)):
+
         if grouped_ages[i] == '< 18' or grouped_ages[i] == '18 - 25' or grouped_ages[i] == '26 - 30':
+
             younger_symptoms_book.append(symptoms_book[i])
             younger_symptoms_movie.append(symptoms_movie[i])
             younger_snacks_book.append(snacks_book[i])
             younger_snacks_movie.append(snacks_movie[i])
             younger_motivation_book.append(int(motivation_book[i]))
             younger_motivation_movie.append(int(motivation_movie[i]))
+
         if grouped_ages[i] == '31 - 40' or grouped_ages[i] == '41 - 50' or grouped_ages[i] == '51 - 60':
+
             older_symptoms_book.append(symptoms_book[i])
             older_symptoms_movie.append(symptoms_movie[i])
             older_snacks_book.append(snacks_book[i])
             older_snacks_movie.append(snacks_movie[i])
             older_motivation_book.append(int(motivation_book[i]))
             older_motivation_movie.append(int(motivation_movie[i]))
-
-    print(younger_symptoms_book)
-    print(younger_symptoms_movie)
-    print(older_symptoms_book)
-    print(older_symptoms_movie)
-    print(younger_snacks_book)
-    print(younger_snacks_movie)
-    print(older_snacks_book)
-    print(older_snacks_movie)
-    print(younger_motivation_book)
-    print(younger_motivation_movie)
-    print(older_motivation_book)
-    print(older_motivation_movie)
 
     return younger_symptoms_book, younger_symptoms_movie, older_symptoms_book, older_symptoms_movie, younger_snacks_book, younger_snacks_movie, older_snacks_book, older_snacks_movie, younger_motivation_book, younger_motivation_movie, older_motivation_book, older_motivation_movie
 
@@ -314,7 +233,6 @@ def create_bar_chart_with_multiple_bars():
     Pos = np.arange(2)
 
     fig, ax = plt.subplots()
-    # plt.yticks(Pos-(1/6), ["", "Level 2", "Level 3", "Level 4", "Level 5"])
     ax.bar(Pos + 0.00, data[0], color='purple', width=0.25)
     ax.bar(Pos + 0.25, data[1], color='goldenrod', width=0.25)
     plt.xticks(Pos+0.12, ["age groups A-C", "age groups D-F"])
@@ -337,7 +255,6 @@ def create_bar_chart_with_multiple_bars():
     Pos = np.arange(2)
 
     fig, ax = plt.subplots()
-    # plt.yticks(Pos-(1/6), ["", "Level 2", "Level 3", "Level 4", "Level 5"])
     ax.bar(Pos + 0.00, data[0], color='purple', width=0.25)
     ax.bar(Pos + 0.25, data[1], color='goldenrod', width=0.25)
     plt.xticks(Pos+0.12, ["age groups A-C", "age groups D-F"])
@@ -360,7 +277,6 @@ def create_bar_chart_with_multiple_bars():
     Pos = np.arange(2)
 
     fig, ax = plt.subplots()
-    # plt.yticks(Pos-(1/6), ["", "Level 2", "Level 3", "Level 4", "Level 5"])
     ax.bar(Pos + 0.00, data[0], color='purple', width=0.25)
     ax.bar(Pos + 0.25, data[1], color='goldenrod', width=0.25)
     plt.xticks(Pos+0.12, ["age groups A-C", "age groups D-F"])
@@ -376,8 +292,6 @@ def create_bar_chart_with_multiple_bars():
 
     plt.show()
 
-
-# def simple_histogram():
 
 def create_histogram():
 
@@ -411,22 +325,13 @@ def create_histogram():
     
 
 def main():
-    # create_basic_diagrams()
-    # create_bar_chart()
-    # convert_string_scales_to_values()
 
     data = readCSV('csv_files/edited/survey_complete.csv')
     motivation_book = processDataToString(data, "How motivated are you to become physically active after you've read a book on a scale of 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
     motivation_movie = processDataToString(data, "How motivated are you to become physically active after you've watched a movie / a series on a scale from 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
     symptoms_book, symptoms_movie, snacks_book, snacks_movie, frequently_book = convert_string_scales_to_values()
 
-    # create_bar_chart(symptoms_book, symptoms_movie, 'symptoms')
-    # create_bar_chart(snacks_book, snacks_movie, 'snacks')
-    # create_bar_chart(motivation_book, motivation_movie, 'motivation')
-
     filter_by_age_and_physical_aspects()
-    # create_bar_chart_with_multiple_bars()
-
     create_histogram()
 
 

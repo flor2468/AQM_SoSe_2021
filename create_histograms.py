@@ -6,7 +6,7 @@ def create_histogram(which_histogram):
 
     data = readCSV('csv_files/edited/survey_complete.csv')
     symptoms_book, symptoms_movie, snacks_book, snacks_movie, frequently_book = convert_string_scales_to_values()
-    # data = readCSV('csv_files/edited/survey_complete.csv')
+
     motivation_book = processDataToString(data, "How motivated are you to become physically active after you've read a book on a scale of 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
     motivation_movie = processDataToString(data, "How motivated are you to become physically active after you've watched a movie / a series on a scale from 1 (not at all motivated) to 10 (very motivated)? (Punkte von 1 bis 10) ")
 
@@ -53,18 +53,16 @@ def create_histogram(which_histogram):
         bins = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
                 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]
         
-        # bins = np.arange(len(bins)) - 0.5
         hist, bins = np.histogram(age, bins = bins) 
 
         print(hist)
         print(bins)
-        fig = plt.figure()
-        
 
+        fig = plt.figure()
         ax = plt.figure().gca()
+
         plt.hist(age, bins = bins, rwidth=0.9, color='#955196', align='left') 
         plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
         ax.set_xticks([0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65])
         ax.set_yticks([0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22])
         ax.set_ylabel('amount')
@@ -82,11 +80,10 @@ def create_histogram(which_histogram):
 
         # BOOK
         hist, bins = np.histogram(book_time, bins = bins) 
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(book_time, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticklabels(['in the morning', 'at noon', 'in the\nafternoon', 'in the\nevening', 'at night'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70])
         ax.set_ylabel('amount')
@@ -100,11 +97,10 @@ def create_histogram(which_histogram):
 
         # MOVIE
         hist, bins = np.histogram(movie_time, bins = bins) 
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(movie_time, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticklabels(['in the morning', 'at noon', 'in the\nafternoon', 'in the\nevening', 'at night'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70])
         ax.set_ylabel('amount')
@@ -126,11 +122,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(symptoms_book, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(symptoms_book, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5])
         ax.set_xticklabels(['never', 'seldom', 'sometimes', 'often', 'very often'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
@@ -147,11 +142,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(symptoms_movie, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(symptoms_movie, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5])
         ax.set_xticklabels(['never', 'seldom', 'sometimes', 'often', 'very often'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
@@ -174,11 +168,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(snacks_book, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(snacks_book, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5])
         ax.set_xticklabels(['never', 'seldom', 'sometimes', 'often', 'very often'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
@@ -195,11 +188,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(snacks_movie, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(snacks_movie, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5])
         ax.set_xticklabels(['never', 'seldom', 'sometimes', 'often', 'very often'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
@@ -222,11 +214,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(motivation_book, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(motivation_book, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
         ax.set_yticks([0, 5, 10, 15, 20])
@@ -241,11 +232,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(motivation_movie, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(motivation_movie, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
         ax.set_yticks([0, 5, 10, 15, 20])
@@ -264,11 +254,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(stress_book, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(stress_book, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30])
@@ -283,11 +272,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(stress_movie, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(stress_movie, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
         ax.set_yticks([0, 5, 10, 15, 20])
@@ -309,11 +297,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(frequently_book, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(frequently_book, bins = bins, rwidth=0.9, color='#955196', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5])
         ax.set_xticklabels(['never', 'seldom', 'sometimes', 'often', 'very often'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35])
@@ -333,16 +320,8 @@ def create_histogram(which_histogram):
         A, B, C, D = get_dispersion_health()
         print(A, B, C, D)
 
-        # hist, bins = np.histogram(health, bins = bins) 
-        # print(hist)
-        # print(bins)
-        # # fig = plt.figure()
         ax = plt.figure().gca()
-        # plt.hist(health, bins = bins, rwidth=0.9, color='#955196', align='left') 
-        # # plt.xlim([0, 65])
-        # # plt.xticks(np.arange(9,61,1))
-        # ax.set_xticks([1, 2, 3, 4])
-        # ax.bar()
+
         labels = ['A', 'B', 'C', 'D']
         answers = [A, B, C, D]
         ax.bar(labels, answers, color='#955196')
@@ -365,11 +344,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(pleasure_book, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(pleasure_book, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30])
@@ -384,11 +362,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(pleasure_movie, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(pleasure_movie, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
         ax.set_yticks([0, 5, 10, 15, 20, 25, 30])
@@ -407,11 +384,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(relax_book, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(relax_book, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
         ax.set_yticks([0, 5, 10, 15, 20])
@@ -426,11 +402,10 @@ def create_histogram(which_histogram):
         hist, bins = np.histogram(relax_movie, bins = bins) 
         print(hist)
         print(bins)
-        # fig = plt.figure()
+
         ax = plt.figure().gca()
         plt.hist(relax_movie, bins = bins, rwidth=0.9, color='#007c50', align='left') 
-        # plt.xlim([0, 65])
-        # plt.xticks(np.arange(9,61,1))
+
         ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         ax.set_xticklabels(['1', '2', '3', '4', '5', '6','7', '8', '9', '10'])
         ax.set_yticks([0, 5, 10, 15, 20])

@@ -1,5 +1,4 @@
 
-
 def calculate_mean(array):
 
     sum = 0

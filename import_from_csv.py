@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 
+# source: https://github.com/flor2468/affective_computing
+
 
 def readCSV(filename):
     data = {}
